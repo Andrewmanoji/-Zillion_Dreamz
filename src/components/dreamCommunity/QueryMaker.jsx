@@ -72,7 +72,9 @@ export default function QueryMaker() {
               className="d-flex justify-content-between align-items-center"
               key={index}
             >
-              <div className="ps-1 mb-3 pb-1 mb-sm-0 pb-sm-0 d-flex align-items-center justify-content-start">
+
+              {/* user name */}
+              <div className="ps-1 bg-dark mb-3 pb-1 mb-sm-0 pb-sm-0 d-flex align-items-center justify-content-start">
               
                 <Avatar
                   className="bg-linearlr"
@@ -91,12 +93,13 @@ export default function QueryMaker() {
                     className="fw-bold pe-sm-2 purple"
                     style={{ fontSize: 18 }}
                   >
+                    <span>username</span>
                     {/* {logUser.username} */}
                   </div>
                  
                 </div>
               </div>
-
+{/* queries */}
               <div className="bg-white mx-2 mt-4 p-3 rounded-3 w-100">
                 <p className="text-dark mb-0">{data.query}</p>
               </div>
