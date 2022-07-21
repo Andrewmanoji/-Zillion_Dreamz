@@ -117,8 +117,12 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
           {/* query heading*/}
           <div className="d-flex flex-column">
             <span className="fw-bold purple-gradient fs-4">Query Section</span>
+          
+          
             {/* description + button*/}
-            <div className="d-flex bg-danger  m-2 ">
+            <div className="d-flex  justify-content-between  ">
+             
+             
               {/* description */}
               <div className="pt-2 p d-flex flex-column">
                 <span className="fw-bold purple-gradient fs-6">
@@ -128,15 +132,19 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                   any query to get some ideas{" "}
                 </span>
               </div>
+            
+            
               {/* query button */}
-              <div className="bg-grey rounded-3   p-4 col-4 d-flex  gap-4  ">
+              <div className="rounded-3 m-2  py-3 col-4 d-flex   justify-content-center gap-4  ">
                 <Button
                   style={{
+
                     borderRadius: "4px",
                     boxShadow: "0px 5px 10px #0000005e",
                   }}
-                  className=" bg-linearlr p-2 "
+                  className="  bg-linearlr p-2 "
                   variant="outlined"
+                 
                   onClick={() => {
                     setIdea(false);
                   }}
@@ -149,7 +157,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                     borderRadius: "4px",
                     boxShadow: "0px 5px 10px #0000005e",
                   }}
-                  className=" bg-linearlr p-2 "
+                  className=" btn bg-linearlr p-2 "
                   variant="outlined"
                   onClick={() => {
                     setIdea(true);
@@ -158,6 +166,8 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                   + Add Query
                 </Button>
               </div>
+            
+            
             </div>
           </div>
 
