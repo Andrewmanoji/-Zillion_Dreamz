@@ -58,16 +58,15 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
           {/* upper half */}
           <div className="d-flex  justify-content-between   py-3">
             {/* Zd menu  */}
-            <div className="  d-flex justify-content-between col-6 ">
+            <div className="  d-flex justify-content-between col-7 ">
               <span className="fw-bold purple-gradient fs-3">
                 Select Your ZD Menu
               </span>
 
-              <FormControl variant="filled" sx={{ minWidth: 150 }}>
+              <FormControl variant="" sx={{ minWidth: 220 }}>
                 <Select
                   style={{
-                    borderRadius: "4px",
-                    boxShadow: "0px 5px 10px #0000005e",
+                    borderRadius: "7px",
                   }}
                   labelId="demo-simple-select-filled-label"
                   id="demo-simple-select-filled"
@@ -112,6 +111,20 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
               >
                 Idea Crate
               </Button>
+            </div>
+          </div>
+
+          {/* query start */}
+          <div className="bg-danger d-flex flex-column">
+            <span className="fw-bold purple-gradient fs-4">Query Section</span>
+            {/* description */}
+            <div className="pt-2 p d-flex flex-column">
+              <span className="fw-bold purple-gradient fs-6">
+                Choose your query to shower your ideas. Post if you have
+              </span>
+              <span className="fw-bold purple-gradient fs-6">
+                any query to get some ideas{" "}
+              </span>
             </div>
           </div>
 
