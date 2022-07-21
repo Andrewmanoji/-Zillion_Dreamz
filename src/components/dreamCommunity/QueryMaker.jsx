@@ -86,7 +86,7 @@ export default function QueryMaker() {
                   }}
                 />
                 {/* </StyledBadge> */}
-                <div className="d-flex flex-column flex-sm-row justify-content-end align-items-start ms-3 pe-1 pe-sm-2 mb-sm-3 mt-0 ">
+                <div className="d-flex  bg-dark flex-column flex-sm-row justify-content-end align-items-start ms-3 pe-1 pe-sm-2 mb-sm-3 mt-0 ">
                   <div
                     className="fw-bold pe-sm-2 purple"
                     style={{ fontSize: 18 }}
@@ -100,7 +100,7 @@ export default function QueryMaker() {
               <div className="bg-white mx-2 mt-4 p-3 rounded-3 w-100">
                 <p className="text-dark mb-0">{data.query}</p>
               </div>
-
+{/* 
               <IconButton
                 aria-label="add"
                 size="large"
@@ -111,11 +111,13 @@ export default function QueryMaker() {
                 }}
               >
                 <LightbulbIcon fontSize="inherit" className="bg-purple" />
-              </IconButton>
+              
+              </IconButton> */}
+           
             </div>
           ))}
 
-        <Dialog
+        {/* <Dialog
           open={addopen}
           onClose={handleClose}
           aria-labelledby="alert-dialog-title"
@@ -125,10 +127,11 @@ export default function QueryMaker() {
           <DialogContent>
             <Ideas data={data} publicQueryId={publicQueryId} />
           </DialogContent>
-        </Dialog>
+        </Dialog> */}
 
         <div className="d-flex justify-content-end">
-          <PurpleTooltip title="Add Query" className="purple" placement="left">
+          
+          {/* <PurpleTooltip title="Add Query" className="purple" placement="left">
             <IconButton
               aria-label="add"
               size="large"
@@ -137,21 +140,23 @@ export default function QueryMaker() {
             >
               <AddIcon fontSize="inherit" className="text-white" />
             </IconButton>
-          </PurpleTooltip>
+          </PurpleTooltip> */}
+
         </div>
       </div>
 
-      <Dialog
+      {/* <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
         fullWidth={true}
       >
-        <DialogContent>
-          <IdeaCreate setOpen={setOpen} />
+         <DialogContent>
+         <IdeaCreate setOpen={setOpen} /> 
         </DialogContent>
-      </Dialog>
+      
+      </Dialog> */}
     </>
   );
 }

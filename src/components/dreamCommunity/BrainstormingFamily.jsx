@@ -5,6 +5,8 @@ import YourQueries from "./YourQueries";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
+import IdeaCreate from "../dreamCommunity/IdeaCrate";
+
 import Select from "@mui/material/Select";
 import zvillasoon from "../../assets/images/zson.gif";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -23,6 +25,8 @@ const theme = createTheme({
 export default function BrainstormingFamily({ setBrainstroming, mob,  }) {
   const [idea, setIdea] = useState(false);
   const [menu, setMenu] = useState(true);
+    const [open, setOpen] = useState(false);
+
 
   const handleChange = (event) => {
     setMenu(event.target.value);
@@ -154,9 +158,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob,  }) {
                   }}
                   className=" btn bg-linearlr p-2 "
                   variant="outlined"
-                  onClick={() => {
-                    setIdea(true);
-                  }}
+                  onClick={() => setOpen(true)}
                 >
                   + Add Query
                 </Button>
