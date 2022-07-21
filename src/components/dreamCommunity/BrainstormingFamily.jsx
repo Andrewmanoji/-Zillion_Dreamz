@@ -114,17 +114,50 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
             </div>
           </div>
 
-          {/* query start */}
-          <div className="bg-danger d-flex flex-column">
+          {/* query heading*/}
+          <div className="d-flex flex-column">
             <span className="fw-bold purple-gradient fs-4">Query Section</span>
-            {/* description */}
-            <div className="pt-2 p d-flex flex-column">
-              <span className="fw-bold purple-gradient fs-6">
-                Choose your query to shower your ideas. Post if you have
-              </span>
-              <span className="fw-bold purple-gradient fs-6">
-                any query to get some ideas{" "}
-              </span>
+            {/* description + button*/}
+            <div className="d-flex bg-danger  m-2 ">
+              {/* description */}
+              <div className="pt-2 p d-flex flex-column">
+                <span className="fw-bold purple-gradient fs-6">
+                  Choose your query to shower your ideas. Post if you have
+                </span>
+                <span className="fw-bold purple-gradient fs-6">
+                  any query to get some ideas{" "}
+                </span>
+              </div>
+              {/* query button */}
+              <div className="bg-grey rounded-3   p-4 col-4 d-flex  gap-4  ">
+                <Button
+                  style={{
+                    borderRadius: "4px",
+                    boxShadow: "0px 5px 10px #0000005e",
+                  }}
+                  className=" bg-linearlr p-2 "
+                  variant="outlined"
+                  onClick={() => {
+                    setIdea(false);
+                  }}
+                >
+                  Your Query
+                </Button>
+
+                <Button
+                  style={{
+                    borderRadius: "4px",
+                    boxShadow: "0px 5px 10px #0000005e",
+                  }}
+                  className=" bg-linearlr p-2 "
+                  variant="outlined"
+                  onClick={() => {
+                    setIdea(true);
+                  }}
+                >
+                  + Add Query
+                </Button>
+              </div>
             </div>
           </div>
 
