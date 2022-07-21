@@ -24,7 +24,7 @@ const theme = createTheme({
 
 export default function BrainstormingFamily({ setBrainstroming, mob,  }) {
   const [idea, setIdea] = useState(false);
-  const [menu, setMenu] = useState();
+  const [menu, setMenu] = useState(10);
     const [open, setOpen] = useState(false);
 
 
@@ -60,12 +60,8 @@ export default function BrainstormingFamily({ setBrainstroming, mob,  }) {
       <ThemeProvider theme={theme}>
         {/* Full container */}
         <div className="container my-4">
-        
-        
           {/* upper half */}
           <div className="d-flex  justify-content-between   py-3">
-           
-           
             {/* Zd menu  */}
             <div className="  d-flex justify-content-between col-7 ">
               <span className="fw-bold purple-gradient fs-3">
@@ -80,16 +76,16 @@ export default function BrainstormingFamily({ setBrainstroming, mob,  }) {
                   labelId="demo-simple-select-filled-label"
                   id="demo-simple-select-filled"
                   className=" bg-linearlr  "
-                  value={10}
+                 value={menu}
                   label="menu"
                   onChange={handleChange}
                 >
                   <MenuItem value={10}>General</MenuItem>
+                  
                   <MenuItem value={20}>Business</MenuItem>
                   <MenuItem value={30}>Education</MenuItem>
                 </Select>
               </FormControl>
-           
             </div>
 
             {/* button */}

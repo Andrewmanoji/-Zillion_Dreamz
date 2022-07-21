@@ -69,13 +69,11 @@ export default function QueryMaker() {
         {data &&
           data.map((data, index) => (
             <div
-              className="d-flex justify-content-between align-items-center"
+              className="d-flex    justify-content-between align-items-center"
               key={index}
             >
-
               {/* user name */}
-              <div className="ps-1 bg-dark mb-3 pb-1 mb-sm-0 pb-sm-0 d-flex align-items-center justify-content-start">
-              
+              <div className="  ps-1  mb-3 pb-1 mb-sm-0 pb-sm-0 d-flex align-items-center justify-content-start">
                 <Avatar
                   className="bg-linearlr"
                   // alt={logUser.username}
@@ -87,23 +85,24 @@ export default function QueryMaker() {
                     height: 50,
                   }}
                 />
+
                 {/* </StyledBadge> */}
-                <div className="d-flex  bg-dark flex-column flex-sm-row justify-content-end align-items-start ms-3 pe-1 pe-sm-2 mb-sm-3 mt-0 ">
+                <div className="d-flex  flex-column flex-sm-row justify-content-end align-items-start ms-3 pe-1 pe-sm-2 mb-sm-3 mt-0 ">
                   <div
                     className="fw-bold pe-sm-2 purple"
                     style={{ fontSize: 18 }}
                   >
-                    <span>username</span>
+                    <span className="">username</span>
                     {/* {logUser.username} */}
                   </div>
-                 
                 </div>
               </div>
-{/* queries */}
+
+              {/* queries */}
               <div className="bg-white mx-2 mt-4 p-3 rounded-3 w-100">
                 <p className="text-dark mb-0">{data.query}</p>
               </div>
-{/* 
+              {/* 
               <IconButton
                 aria-label="add"
                 size="large"
@@ -116,7 +115,6 @@ export default function QueryMaker() {
                 <LightbulbIcon fontSize="inherit" className="bg-purple" />
               
               </IconButton> */}
-           
             </div>
           ))}
 
@@ -133,7 +131,6 @@ export default function QueryMaker() {
         </Dialog> */}
 
         <div className="d-flex justify-content-end">
-          
           {/* <PurpleTooltip title="Add Query" className="purple" placement="left">
             <IconButton
               aria-label="add"
@@ -144,7 +141,6 @@ export default function QueryMaker() {
               <AddIcon fontSize="inherit" className="text-white" />
             </IconButton>
           </PurpleTooltip> */}
-
         </div>
       </div>
 

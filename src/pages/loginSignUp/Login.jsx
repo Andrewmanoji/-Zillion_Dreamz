@@ -452,7 +452,7 @@ export default function Login({ setAuthToken }) {
                       type={values.showPassword ? "text" : "password"}
                       className="form-control mb-1 rounded-pill p-2 create-acc"
                       style={{ borderColor: "#b442ff" }}
-                      type={values.showPassword ? "text" : "password"}
+                      // type={values.showPassword ? "text" : "password"}
                       value={values.password}
                       onChange={(e) =>
                         setValues((pre) => ({
