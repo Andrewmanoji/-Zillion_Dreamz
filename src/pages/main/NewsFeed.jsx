@@ -52,6 +52,8 @@ import feed_loader from "../../assets/images/feed_load.gif";
 import OthersPost from "../../components/main/newsfeed/OthersPost";
 import { useMemo } from "react";
 
+
+
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
     left: 30,
@@ -427,6 +429,8 @@ function NewsFeed({ mob, logUser, tab, authToken }) {
               )}
 
               <div className="user-div px-2 px-sm-4 px-2 pe-2 d-flex align-items-end justify-content-between ">
+               
+               
                 <div className="ps-1 mb-3 pb-1 mb-sm-0 pb-sm-0 d-flex align-items-center justify-content-start">
                   {/* <StyledBadge
                     overlap="circular"
@@ -458,6 +462,9 @@ function NewsFeed({ mob, logUser, tab, authToken }) {
                   </div>
                 </div>
                 <div>
+
+
+
                   {postResult && (
                     <label for="gallery">
                       <EditIcon

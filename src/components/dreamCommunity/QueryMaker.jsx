@@ -8,10 +8,11 @@ import { useDispatch } from "react-redux";
 import { addQuery } from "../../slices/eventSlice";
 import IdeaCreate from "../dreamCommunity/IdeaCrate";
 import Ideas from "../dreamCommunity/Ideas";
-
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import { useSelector } from "react-redux";
+import Avatar from "@mui/material/Avatar";
+
 
 const PurpleTooltip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
@@ -71,6 +72,31 @@ export default function QueryMaker() {
               className="d-flex justify-content-between align-items-center"
               key={index}
             >
+              <div className="ps-1 mb-3 pb-1 mb-sm-0 pb-sm-0 d-flex align-items-center justify-content-start">
+              
+                <Avatar
+                  className="bg-linearlr"
+                  // alt={logUser.username}
+                  // src={logUser.profile_pic.public_url}
+                  style={{
+                    boxShadow: "0px 5px 10px black",
+                    transform: "scale(1.2)",
+                    width: 50,
+                    height: 50,
+                  }}
+                />
+                {/* </StyledBadge> */}
+                <div className="d-flex flex-column flex-sm-row justify-content-end align-items-start ms-3 pe-1 pe-sm-2 mb-sm-3 mt-0 ">
+                  <div
+                    className="fw-bold pe-sm-2 purple"
+                    style={{ fontSize: 18 }}
+                  >
+                    {/* {logUser.username} */}
+                  </div>
+                 
+                </div>
+              </div>
+
               <div className="bg-white mx-2 mt-4 p-3 rounded-3 w-100">
                 <p className="text-dark mb-0">{data.query}</p>
               </div>
@@ -88,6 +114,7 @@ export default function QueryMaker() {
               </IconButton>
             </div>
           ))}
+
         <Dialog
           open={addopen}
           onClose={handleClose}
@@ -113,6 +140,7 @@ export default function QueryMaker() {
           </PurpleTooltip>
         </div>
       </div>
+
       <Dialog
         open={open}
         onClose={handleClose}
