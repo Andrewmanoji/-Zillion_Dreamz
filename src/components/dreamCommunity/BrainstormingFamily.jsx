@@ -65,9 +65,13 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
 
               <FormControl variant="filled" sx={{ minWidth: 150 }}>
                 <Select
+                  style={{
+                    borderRadius: "4px",
+                    boxShadow: "0px 5px 10px #0000005e",
+                  }}
                   labelId="demo-simple-select-filled-label"
                   id="demo-simple-select-filled"
-                  className="mb-4"
+                  className=" bg-linearlr  "
                   value={menu}
                   label="menu"
                   onChange={handleChange}
@@ -80,13 +84,13 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
             </div>
 
             {/* button */}
-            <div 
-            className="bg-grey rounded-3  mx-3 px-4 py-2 col-4  py-3 d-flex flex-column  ">
+            <div className="bg-grey rounded-3  mx-3 px-5 col-4 py-4 d-flex gap-4 flex-column  ">
               <Button
-               style={{
-            borderRadius: "0px 0px 10px 10px",
-            boxShadow: "0px 5px 10px #0000005e"}}
-             className="fw-bold bg-linearlr col-6 col-md-3 col-xl-2 mx-auto text-center p-5 mt-0 bg-grey rounded-3  mx-3 px-4 py-2 col-4  py-3 d-flex flex-column "
+                style={{
+                  borderRadius: "4px",
+                  boxShadow: "0px 5px 10px #0000005e",
+                }}
+                className="fw-bold bg-linearlr p-2 "
                 variant="outlined"
                 onClick={() => {
                   setIdea(false);
@@ -97,9 +101,10 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
 
               <Button
                 style={{
-            borderRadius: "0px 0px 10px 10px",
-            boxShadow: "0px 5px 10px #0000005e"}}
-             className="fw-bold bg-linearlr col-6 col-md-3 col-xl-2 mx-auto text-center p-2 mt-0 bg-grey rounded-3  mx-3 px-4 py-2 col-4  py-3 d-flex flex-column "
+                  borderRadius: "4px",
+                  boxShadow: "0px 5px 10px #0000005e",
+                }}
+                className="fw-bold bg-linearlr p-2 "
                 variant="outlined"
                 onClick={() => {
                   setIdea(true);
