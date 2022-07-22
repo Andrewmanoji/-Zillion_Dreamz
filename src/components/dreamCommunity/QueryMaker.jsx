@@ -100,7 +100,7 @@ export default function QueryMaker() {
                   </div>
                 </div>
                 {/* queries */}
-                <div className="bg-white  p-5 rounded-3 w-100">
+                <div className="bg-white  p-4 rounded-3 w-100">
                   <p className="text-dark mb-0">{data.query}</p>
                 </div>
               </div>

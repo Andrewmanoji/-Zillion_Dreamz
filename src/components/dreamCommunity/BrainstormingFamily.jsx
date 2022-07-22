@@ -11,7 +11,6 @@ import Select from "@mui/material/Select";
 import zvillasoon from "../../assets/images/zson.gif";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const theme = createTheme({
@@ -22,12 +21,11 @@ const theme = createTheme({
   },
 });
 
-export default function BrainstormingFamily({ setBrainstroming, mob,  }) {
+export default function BrainstormingFamily({ setBrainstroming, mob }) {
   const [idea, setIdea] = useState(false);
   const [menu, setMenu] = useState(10);
-    const [open, setOpen] = useState(false);
-  
-
+  const [open, setOpen] = useState(false);
+  const [color, setColor] = useState(false);
 
   const handleChange = (event) => {
     setMenu(event.target.value);
@@ -69,15 +67,15 @@ export default function BrainstormingFamily({ setBrainstroming, mob,  }) {
                 Select Your ZD Menu
               </span>
 
-              <FormControl variant="" sx={{ minWidth: 220 }}>
+              <FormControl variant="outlined" sx={{ minWidth: 220 }}>
                 <Select
                   style={{
                     borderRadius: "7px",
                   }}
                   labelId="demo-simple-select-filled-label"
                   id="demo-simple-select-filled"
-                  className=" bg-linearlr  "
-                 value={menu}
+                  className=" bg-linearlr    "
+                  value={menu}
                   label="menu"
                   onChange={handleChange}
                 >
@@ -87,6 +85,8 @@ export default function BrainstormingFamily({ setBrainstroming, mob,  }) {
                   <MenuItem value={30}>Education</MenuItem>
                 </Select>
               </FormControl>
+           
+           
             </div>
 
             {/* button */}
@@ -110,9 +110,10 @@ export default function BrainstormingFamily({ setBrainstroming, mob,  }) {
                   borderRadius: "4px",
                   boxShadow: "0px 5px 10px #0000005e",
                 }}
-                className="fw-bold bg-linearlr p-2 "
+                className="fw-bold bg-linearlr  p-2 "
                 variant="outlined"
                 onClick={() => {
+                  setColor(false);
                   setIdea(true);
                 }}
               >
