@@ -67,7 +67,7 @@ export default function QueryMaker() {
       <div className="rounded-4 bg-purple d-flex flex-column justify-content-evenly p-4 vh-70 w-100">
         {data &&
           data.map((data, index) => (
-            <div className="d-flex     align-items-start" key={index}>
+            <div className="d-flex  mb-2   align-items-start" key={index}>
               {/* user name */}
               <div className=" p-2 ps-1  pb-1 mb-sm-0 pb-sm-0  col-1     ">
                 <Avatar
@@ -87,7 +87,7 @@ export default function QueryMaker() {
                 {/* </StyledBadge> */}
                 <div className="d-flex flex-sm-row mt-0  ms-0 pe-1 pe-sm-2 mb-sm-3   ">
                   <div
-                    className="fw-bold pe-sm-2 bg-purple px-3 d-flex "
+                    className="fw-bold pe-sm-2  d-flex "
                     style={{ fontSize: 18 }}
                   >
                     <span
