@@ -58,7 +58,11 @@ export default function IdeaCrate({ setOpen }) {
   return (
     <>
       <div className="rounded-4 bg-purple vh-40 position-relative pt-1">
+       
+       
         <div>
+          
+          
           <div className="d-flex justify-content-between m-4 align-items-center">
             <div className="form-floating m-3 w-100 ">
               <input
@@ -70,12 +74,17 @@ export default function IdeaCrate({ setOpen }) {
                 }
               />
               <label className="text-dark" for="floatingInput">
-                Query
+              Idea Create
               </label>
             </div>
           </div>
+          
+          
+          
           <div className="divide"></div>
           <div className="align-items-right justify-content-end mx-5 mt-md-3">
+            
+            
             <DialogActions>
               <Button
                 className="bg-white purple mx-1 mb-3 my-2"

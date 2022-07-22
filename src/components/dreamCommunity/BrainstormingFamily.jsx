@@ -25,7 +25,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
   const [idea, setIdea] = useState(false);
   const [menu, setMenu] = useState(10);
   const [open, setOpen] = useState(false);
-  const [color, setColor] = useState(false);
+
 
   const handleChange = (event) => {
     setMenu(event.target.value);
@@ -113,7 +113,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                 className="fw-bold bg-linearlr  p-2 "
                 variant="outlined"
                 onClick={() => {
-                  setColor(false);
+              
                   setIdea(true);
                 }}
               >
@@ -159,7 +159,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                     borderRadius: "4px",
                     boxShadow: "0px 5px 10px #0000005e",
                   }}
-                  className=" btn bg-linearlr p-2 "
+                  className=" btn bg-linearlr p-1"
                   variant="outlined"
                   onClick={() => setOpen(true)}
                 >
@@ -169,7 +169,9 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
             </div>
           </div>
 
-          {idea ? <YourQueries /> : <QueryMaker />}
+          {idea ? <IdeaCreate /> : <QueryMaker />}
+          
+          
         </div>
       </ThemeProvider>
     </>
