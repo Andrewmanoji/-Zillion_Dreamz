@@ -65,9 +65,8 @@ export default function IdeaCrate({ setOpen }) {
         <div>
           <>
             <div className="rounded-4 bg-purple d-flex flex-column justify-content-evenly p-4 vh-70 w-100">
-              {data &&
-                data.map((data, index) => (
-                  <div className="d-flex  mb-2   align-items-start" key={index}>
+             
+                  <div className="d-flex  mb-2   align-items-start" >
                     {/* user name */}
                     <div className=" p-2 ps-1  pb-1 mb-sm-0 pb-sm-0  col-1     ">
                       <Avatar
@@ -105,7 +104,7 @@ export default function IdeaCrate({ setOpen }) {
                         <p className="text-dark mb-0">{data.query}</p>
                       </div>
 
-                      <div className="divide mt-5"></div>
+           
                     </div>
 
                     {/* 
@@ -122,7 +121,7 @@ export default function IdeaCrate({ setOpen }) {
               
               </IconButton> */}
                   </div>
-                ))}
+           
 
               {/* <Dialog
           open={addopen}
@@ -167,9 +166,9 @@ export default function IdeaCrate({ setOpen }) {
           <div className="divide"></div>
 
           <div className="rounded-4 bg-purple d-flex flex-column justify-content-evenly p-4 vh-70 w-100">
-            {data &&
-              data.map((data, index) => (
-                <div className="d-flex  mb-2   align-items-start" key={index}>
+            {/* {data &&
+              data.map((data, index) => ( */}
+                <div className="d-flex  mb-2   align-items-start">
                   {/* user name */}
                   <div className=" p-2 ps-1  pb-1 mb-sm-0 pb-sm-0  col-1     ">
                     <Avatar
@@ -253,7 +252,7 @@ export default function IdeaCrate({ setOpen }) {
               
               </IconButton> */}
                 </div>
-              ))}
+              {/* ))} */}
 
             {/* <Dialog
           open={addopen}
