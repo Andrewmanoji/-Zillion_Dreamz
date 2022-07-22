@@ -76,7 +76,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob,  }) {
                   }}
                   labelId="demo-simple-select-filled-label"
                   id="demo-simple-select-filled"
-                  className=" bg-linearlr  "
+                  // className=" bg-linearlr  "
                  value={menu}
                   label="menu"
                   onChange={handleChange}
