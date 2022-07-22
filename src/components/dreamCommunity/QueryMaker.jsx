@@ -13,7 +13,6 @@ import DialogContent from "@mui/material/DialogContent";
 import { useSelector } from "react-redux";
 import Avatar from "@mui/material/Avatar";
 
-
 const PurpleTooltip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
 ))(({ theme }) => ({
@@ -65,17 +64,14 @@ export default function QueryMaker() {
 
   return (
     <>
-      <div className="rounded-4 bg-purple d-flex flex-column justify-content-evenly p-4 vh-50 w-100">
+      <div className="rounded-4 bg-purple d-flex flex-column justify-content-evenly p-4 vh-70 w-100">
         {data &&
           data.map((data, index) => (
-            <div
-              className="d-flex    justify-content-between align-items-center"
-              key={index}
-            >
+            <div className="d-flex     align-items-start" key={index}>
               {/* user name */}
-              <div className="  ps-1  mb-3 pb-1 mb-sm-0 pb-sm-0 d-flex align-items-center justify-content-start">
+              <div className=" p-2 ps-1  pb-1 mb-sm-0 pb-sm-0  col-1     ">
                 <Avatar
-                  className="bg-linearlr"
+                  className="bg-linear  "
                   // alt={logUser.username}
                   // src={logUser.profile_pic.public_url}
                   style={{
@@ -85,22 +81,28 @@ export default function QueryMaker() {
                     height: 50,
                   }}
                 />
+              </div>
 
+              <div className="d-flex flex-column  col-11 p-0 pl-0">
                 {/* </StyledBadge> */}
-                <div className="d-flex  flex-column flex-sm-row justify-content-end align-items-start ms-3 pe-1 pe-sm-2 mb-sm-3 mt-0 ">
+                <div className="d-flex flex-sm-row mt-0  ms-0 pe-1 pe-sm-2 mb-sm-3   ">
                   <div
-                    className="fw-bold pe-sm-2 purple"
+                    className="fw-bold pe-sm-2 bg-purple px-3 d-flex "
                     style={{ fontSize: 18 }}
                   >
-                    <span className="">username</span>
+                    <span
+                      className="fw-bold pe-sm-2 p-1 "
+                      style={{ fontSize: 18 }}
+                    >
+                      username
+                    </span>
                     {/* {logUser.username} */}
                   </div>
                 </div>
-              </div>
-
-              {/* queries */}
-              <div className="bg-white mx-2 mt-4 p-3 rounded-3 w-100">
-                <p className="text-dark mb-0">{data.query}</p>
+                {/* queries */}
+                <div className="bg-white  p-5 rounded-3 w-100">
+                  <p className="text-dark mb-0">{data.query}</p>
+                </div>
               </div>
               {/* 
               <IconButton
@@ -129,9 +131,9 @@ export default function QueryMaker() {
             <Ideas data={data} publicQueryId={publicQueryId} />
           </DialogContent>
         </Dialog> */}
-
+        {/* 
         <div className="d-flex justify-content-end">
-          {/* <PurpleTooltip title="Add Query" className="purple" placement="left">
+          <PurpleTooltip title="Add Query" className="purple" placement="left">
             <IconButton
               aria-label="add"
               size="large"
@@ -140,8 +142,8 @@ export default function QueryMaker() {
             >
               <AddIcon fontSize="inherit" className="text-white" />
             </IconButton>
-          </PurpleTooltip> */}
-        </div>
+          </PurpleTooltip>
+        </div> */}
       </div>
 
       {/* <Dialog

@@ -26,6 +26,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob,  }) {
   const [idea, setIdea] = useState(false);
   const [menu, setMenu] = useState(10);
     const [open, setOpen] = useState(false);
+  
 
 
   const handleChange = (event) => {
@@ -81,7 +82,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob,  }) {
                   onChange={handleChange}
                 >
                   <MenuItem value={10}>General</MenuItem>
-                  
+
                   <MenuItem value={20}>Business</MenuItem>
                   <MenuItem value={30}>Education</MenuItem>
                 </Select>
