@@ -106,7 +106,7 @@ export default function QueryMaker({setIdea,setYourquery,setAddquery}) {
 
                 <div
                   onClick={() => setIdea(true)}
-                  className="bg-white  p-4  rounded-3 w-100"
+                  className="bg-white cursor-pointer p-4  rounded-3 w-100"
                 >
                   <p className="text-dark mb-0 ">{data.query}</p>
                 </div>

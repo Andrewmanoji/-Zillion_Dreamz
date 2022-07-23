@@ -11,9 +11,16 @@ export default function YourQueries() {
   console.log(userQuery);
   return (
     <>
-   <div className="rounded-4 bg-purple d-flex flex-column justify-content-evenly p-4  pt-0 vh-50 w-100">
+   <div className="rounded-4 bg-purple d-flex flex-column justify-content-evenly p-4  pt-0 vh-70 w-100">
    
-    <div className="d-flex  mb-2  align-items-start">
+   
+
+      {userQuery.map((val, index) =>
+       {
+        if (val.query !== null) {
+          return (
+<>
+  <div className="d-flex  mb-2  align-items-start">
                 {/* user name */}
                 <div className=" p-2 ps-1  pb-1 mb-sm-0 pb-sm-0  col-1     ">
                   <Avatar
@@ -48,21 +55,15 @@ export default function YourQueries() {
                   {/* queries */}
 
                   <div className="bg-white  p-4 rounded-3 w-100">
-                    {/* <p className="text-dark mb-0">{data.query}</p> */}
+                    <p className="text-dark mb-0">{val.query}</p>
                   </div>
                 </div>
 
             </div>
-
-      {userQuery.map((val, index) => {
-        if (val.query !== null) {
-          return (
-<>
- 
-            <div key={index} className="bg-white mx-2 mt-3 p-3 rounded-3 w-100">
+            {/* <div key={index} className="bg-white mx-2 mt-3 p-3 rounded-3 w-100">
 
               <p className="text-dark mb-0">{val.query}</p>
-            </div>
+            </div> */}
          
          </>);
         }

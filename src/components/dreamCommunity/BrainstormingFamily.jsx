@@ -6,13 +6,13 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import IdeaCreate from "../dreamCommunity/IdeaCrate";
-
 import Select from "@mui/material/Select";
 import zvillasoon from "../../assets/images/zson.gif";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-
+import AddQueries from "./AddQueries"
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import IdeaCrate from "../dreamCommunity/IdeaCrate";
+import { Divider } from "@mui/material";
 
 const theme = createTheme({
   palette: {
@@ -78,18 +78,17 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                   labelId="demo-simple-select-filled-label"
                   id="demo-simple-select-filled"
                   className=" bg-linearlr  "
-                 value={menu}
+                  value={menu}
                   label="menu"
                   onChange={handleChange}
                 >
                   <MenuItem value={10}>General</MenuItem>
-
+                  <Divider color="bg-purple" />
                   <MenuItem value={20}>Business</MenuItem>
+                  <Divider color="bg-purple" />
                   <MenuItem value={30}>Education</MenuItem>
                 </Select>
               </FormControl>
-           
-           
             </div>
 
             {/* button */}
@@ -103,8 +102,8 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                 variant="outlined"
                 onClick={() => {
                   setIdea(false);
-                  setAddquery(false)
-                  setYourquery(false)
+                  setAddquery(false);
+                  setYourquery(false);
                 }}
               >
                 Query Maker
@@ -118,7 +117,6 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                 className="fw-bold bg-linearlr  p-2 "
                 variant="outlined"
                 onClick={() => {
-              
                   setIdea(true);
                 }}
               >
@@ -128,29 +126,29 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
           </div>
 
           {/* query heading*/}
-         
+
           <>
-
-            {idea ? 
-            (
-                 <div className="d-flex flex-column">   
-                 <span className="fw-bold purple-gradient fs-4">Idea Section</span>
-
-            {/* description + button*/}
-            <div className="d-flex  justify-content-between">
-              {/* description */}
-              <div className="pt-2 p d-flex  flex-column">
-                <span className="fw-bold purple-gradient fs-6">
-                  Choose your query to shower your ideas. Post if you have
+            {idea ? (
+              <div className="d-flex flex-column">
+                <span className="fw-bold purple-gradient fs-4">
+                  Idea Section
                 </span>
-                <span className="fw-bold purple-gradient fs-6">
-                  any query to get some ideas{" "}
-                </span>
-              </div>
 
-              {/* query button */}
-              <div className="rounded-3 m-2   py-3 col-2 d-flex   justify-content-center gap-4  ">
-                {/* <Button
+                {/* description + button*/}
+                <div className="d-flex  justify-content-between">
+                  {/* description */}
+                  <div className="pt-2 p d-flex  flex-column">
+                    <span className="fw-bold purple-gradient fs-6">
+                      Choose your query to shower your ideas. Post if you have
+                    </span>
+                    <span className="fw-bold purple-gradient fs-6">
+                      any query to get some ideas{" "}
+                    </span>
+                  </div>
+
+                  {/* query button */}
+                  <div className="rounded-3 m-2   py-3 col-2 d-flex   justify-content-center gap-4  ">
+                    {/* <Button
                   style={{
                     borderRadius: "4px",
                     boxShadow: "0px 5px 10px #0000005e",
@@ -165,102 +163,89 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                   Your Query
                 </Button> */}
 
-                <Button
-                  style={{
-                    borderRadius: "4px",
-                    boxShadow: "0px 5px 10px #0000005e",
-                  }}
-                  className=" btn bg-linearlr me-0 p-1"
-                  variant="outlined"
-                  onClick={() => setOpen(true)}
-                >
-                  + Add ideas
-                </Button>
+                    <Button
+                      style={{
+                        borderRadius: "4px",
+                        boxShadow: "0px 5px 10px #0000005e",
+                      }}
+                      className=" btn bg-linearlr me-0 p-1"
+                      variant="outlined"
+                      onClick={() => setOpen(true)}
+                    >
+                      + Add ideas
+                    </Button>
+                  </div>
+                </div>
 
-
+                <IdeaCreate />
               </div>
-            
-            </div>
-          
-           <IdeaCreate  /> 
-           
-            </div>
-            ):
-            (
+            ) : (
               <>
-        
-              <div className="d-flex flex-column">    
-                 <span className="fw-bold purple-gradient fs-4">Query Section</span>
+                <div className="d-flex flex-column">
+                  <span className="fw-bold purple-gradient fs-4">
+                    Query Section
+                  </span>
 
-            {/* description + button*/}
-            <div className="d-flex  justify-content-between  ">
-              {/* description */}
-              <div className="pt-2 p d-flex flex-column">
-                <span className="fw-bold purple-gradient fs-6">
-                  Choose your query to shower your ideas. Post if you have
-                </span>
-                <span className="fw-bold purple-gradient fs-6">
-                  any query to get some ideas{" "}
-                </span>
-              </div>
+                  {/* description + button*/}
+                  <div className="d-flex  justify-content-between  ">
+                    {/* description */}
+                    <div className="pt-2 p d-flex flex-column">
+                      <span className="fw-bold purple-gradient fs-6">
+                        Choose your query to shower your ideas. Post if you have
+                      </span>
+                      <span className="fw-bold purple-gradient fs-6">
+                        any query to get some ideas{" "}
+                      </span>
+                    </div>
 
-              {/* query button */}
-              <div className="rounded-3 m-2  py-3 col-4 d-flex   justify-content-center gap-4  ">
-                <Button
-                  style={{
-                    borderRadius: "4px",
-                    boxShadow: "0px 5px 10px #0000005e",
-                  }}
-                  className="  bg-linearlr p-1 "
-                  variant="outlined"
-                  onClick={() => {
-                    setIdea(false);
-                    setYourquery(true);
-                    setAddquery(false)
-                    
+                    {/* query button */}
+                    <div className="rounded-3 m-2  py-3 col-4 d-flex   justify-content-center gap-4  ">
+                      <Button
+                        style={{
+                          borderRadius: "4px",
+                          boxShadow: "0px 5px 10px #0000005e",
+                        }}
+                        className="  bg-linearlr p-1 "
+                        variant="outlined"
+                        onClick={() => {
+                          setIdea(false);
+                          setYourquery(true);
+                          setAddquery(false);
+                        }}
+                      >
+                        Your Query
+                      </Button>
 
-                  }}
-                >
-                  Your Query
-                </Button>
+                      <Button
+                        style={{
+                          borderRadius: "4px",
+                          boxShadow: "0px 5px 10px #0000005e",
+                        }}
+                        className=" btn bg-linearlr p-1"
+                        variant="outlined"
+                        onClick={() => {
+                          // setOpen(true)
+                          setAddquery(true);
+                          setYourquery(false);
+                        }}
+                      >
+                        + Add Query
+                      </Button>
+                    </div>
+                  </div>
 
-                <Button
-                  style={{
-                    borderRadius: "4px",
-                    boxShadow: "0px 5px 10px #0000005e",
-                  }}
-                  className=" btn bg-linearlr p-1"
-                  variant="outlined"
-                  onClick={() => 
-                    {  
-                      // setOpen(true)
-                    setAddquery(true)
-                  setYourquery(false)}
-                  
-                  }
-                >
-                  + Add Query
-                </Button>
-              </div>
-            </div>
-          
-
-          {yourquery?<YourQueries/>:
-          addquery?<IdeaCrate/>:<QueryMaker setIdea={setIdea}/>}
-        
-         
-             </div>
-        </>
-            )
-            
-        }
+                  {yourquery ? (
+                    <YourQueries />
+                  ) : addquery ? (
+                    <AddQueries />
+                  ) : (
+                    <QueryMaker setIdea={setIdea} />
+                  )}
+                </div>
+              </>
+            )}
           </>
-
-        
-          
-          
         </div>
-        
       </ThemeProvider>
     </>
   );
