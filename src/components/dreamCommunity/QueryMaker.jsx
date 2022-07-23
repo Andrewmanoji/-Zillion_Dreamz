@@ -24,13 +24,14 @@ const PurpleTooltip = styled(({ className, ...props }) => (
   },
 }));
 
-export default function QueryMaker({setIdea,idea}) {
+export default function QueryMaker({setIdea,setYourquery,setAddquery}) {
   const data = useSelector((state) => state.queryMaker);
 
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [addopen, setaddOpen] = useState(false);
   const [alert, setAlert] = useState(false);
+
 
 
   const [values, setValues] = useState({
@@ -124,6 +125,8 @@ export default function QueryMaker({setIdea,idea}) {
               
               </IconButton> */}
             </div>
+
+            
           ))}
 
         {/* <Dialog
@@ -150,7 +153,11 @@ export default function QueryMaker({setIdea,idea}) {
             </IconButton>
           </PurpleTooltip>
         </div> */}
+     
       </div>
+
+
+      
 
       {/* <Dialog
         open={open}

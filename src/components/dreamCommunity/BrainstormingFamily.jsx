@@ -12,6 +12,7 @@ import zvillasoon from "../../assets/images/zson.gif";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import IdeaCrate from "../dreamCommunity/IdeaCrate";
 
 const theme = createTheme({
   palette: {
@@ -25,6 +26,8 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
   const [idea, setIdea] = useState(false);
   const [menu, setMenu] = useState(10);
   const [open, setOpen] = useState(false);
+  const[yourquery,setYourquery]=useState(false);
+  const[addquery,setAddquery]=useState(false)
 
 
   const handleChange = (event) => {
@@ -100,6 +103,8 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                 variant="outlined"
                 onClick={() => {
                   setIdea(false);
+                  setAddquery(false)
+                  setYourquery(false)
                 }}
               >
                 Query Maker
@@ -132,9 +137,9 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                  <span className="fw-bold purple-gradient fs-4">Idea Section</span>
 
             {/* description + button*/}
-            <div className="d-flex  justify-content-between  ">
+            <div className="d-flex  justify-content-between">
               {/* description */}
-              <div className="pt-2 p d-flex flex-column">
+              <div className="pt-2 p d-flex  flex-column">
                 <span className="fw-bold purple-gradient fs-6">
                   Choose your query to shower your ideas. Post if you have
                 </span>
@@ -144,8 +149,8 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
               </div>
 
               {/* query button */}
-              <div className="rounded-3 m-2  py-3 col-4 d-flex   justify-content-center gap-4  ">
-                <Button
+              <div className="rounded-3 m-2   py-3 col-2 d-flex   justify-content-center gap-4  ">
+                {/* <Button
                   style={{
                     borderRadius: "4px",
                     boxShadow: "0px 5px 10px #0000005e",
@@ -154,27 +159,36 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                   variant="outlined"
                   onClick={() => {
                     setIdea(false);
+                    setYourquery(true)
                   }}
                 >
                   Your Query
-                </Button>
+                </Button> */}
 
                 <Button
                   style={{
                     borderRadius: "4px",
                     boxShadow: "0px 5px 10px #0000005e",
                   }}
-                  className=" btn bg-linearlr p-1"
+                  className=" btn bg-linearlr me-0 p-1"
                   variant="outlined"
                   onClick={() => setOpen(true)}
                 >
-                  + Add Query
+                  + Add ideas
                 </Button>
+
+
               </div>
+            
             </div>
-           <IdeaCreate  />  </div>
+          
+           <IdeaCreate  /> 
+           
+            </div>
             ):
             (
+              <>
+        
               <div className="d-flex flex-column">    
                  <span className="fw-bold purple-gradient fs-4">Query Section</span>
 
@@ -197,10 +211,14 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                     borderRadius: "4px",
                     boxShadow: "0px 5px 10px #0000005e",
                   }}
-                  className="  bg-linearlr p-2 "
+                  className="  bg-linearlr p-1 "
                   variant="outlined"
                   onClick={() => {
                     setIdea(false);
+                    setYourquery(true);
+                    setAddquery(false)
+                    
+
                   }}
                 >
                   Your Query
@@ -213,15 +231,28 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                   }}
                   className=" btn bg-linearlr p-1"
                   variant="outlined"
-                  onClick={() => setOpen(true)}
+                  onClick={() => 
+                    {  
+                      // setOpen(true)
+                    setAddquery(true)
+                  setYourquery(false)}
+                  
+                  }
                 >
                   + Add Query
                 </Button>
               </div>
             </div>
-               <QueryMaker setIdea={setIdea} /></div>
+          
+
+          {yourquery?<YourQueries/>:
+          addquery?<IdeaCrate/>:<QueryMaker setIdea={setIdea}/>}
         
+         
+             </div>
+        </>
             )
+            
         }
           </>
 
@@ -229,6 +260,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
           
           
         </div>
+        
       </ThemeProvider>
     </>
   );
