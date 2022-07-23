@@ -28,7 +28,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
   const [open, setOpen] = useState(false);
   const[yourquery,setYourquery]=useState(false);
   const[addquery,setAddquery]=useState(false)
-
+const[post,setPost]=useState(false)
 
   const handleChange = (event) => {
     setMenu(event.target.value);
@@ -104,6 +104,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                   setIdea(false);
                   setAddquery(false);
                   setYourquery(false);
+                  setPost(false);
                 }}
               >
                 Query Maker
@@ -117,7 +118,8 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                 className="fw-bold bg-linearlr  p-2 "
                 variant="outlined"
                 onClick={() => {
-                  setIdea(true);
+                  setPost(false)
+                  setIdea(true)
                 }}
               >
                 Idea Crate
@@ -148,21 +150,6 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
 
                   {/* query button */}
                   <div className="rounded-3 m-2   py-3 col-2 d-flex   justify-content-center gap-4  ">
-                    {/* <Button
-                  style={{
-                    borderRadius: "4px",
-                    boxShadow: "0px 5px 10px #0000005e",
-                  }}
-                  className="  bg-linearlr p-2 "
-                  variant="outlined"
-                  onClick={() => {
-                    setIdea(false);
-                    setYourquery(true)
-                  }}
-                >
-                  Your Query
-                </Button> */}
-
                     <Button
                       style={{
                         borderRadius: "4px",
@@ -170,14 +157,17 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                       }}
                       className=" btn bg-linearlr me-0 p-1"
                       variant="outlined"
-                      onClick={() => setOpen(true)}
+                      onClick={() => {
+                        setPost(true);
+                        setOpen(true);
+                      }}
                     >
                       + Add ideas
                     </Button>
                   </div>
                 </div>
 
-                <IdeaCreate />
+                <IdeaCreate setPost={setPost} post={post} />
               </div>
             ) : (
               <>
