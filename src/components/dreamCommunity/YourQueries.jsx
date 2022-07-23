@@ -4,7 +4,7 @@ import axios from "axios";
 import Avatar from "@mui/material/Avatar";
 
 
-export default function YourQueries() {
+export default function YourQueries({setIdea,setYourquery,setAddquery}) {
   const userQuery = useSelector((state) => state.ideaCreate);
   axios.get(`${endpoint}/question/61b8058c79c371bf4d7fe36c`, config);
 
@@ -54,7 +54,9 @@ export default function YourQueries() {
                   </div>
                   {/* queries */}
 
-                  <div className="bg-white  p-4 rounded-3 w-100">
+                  <div 
+                  onClick={() => setIdea(true)}
+                  className="bg-white  p-4 rounded-3 w-100">
                     <p className="text-dark mb-0">{val.query}</p>
                   </div>
                 </div>

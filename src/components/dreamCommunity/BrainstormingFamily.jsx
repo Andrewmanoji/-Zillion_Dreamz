@@ -235,7 +235,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                   </div>
 
                   {yourquery ? (
-                    <YourQueries />
+                    <YourQueries  setIdea={setIdea}/>
                   ) : addquery ? (
                     <AddQueries />
                   ) : (
