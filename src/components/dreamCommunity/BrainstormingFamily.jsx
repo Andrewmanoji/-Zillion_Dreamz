@@ -123,8 +123,13 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
           </div>
 
           {/* query heading*/}
-          <div className="d-flex flex-column">
-            <span className="fw-bold purple-gradient fs-4">Query Section</span>
+         
+          <>
+
+            {idea ? 
+            (
+                 <div className="d-flex flex-column">   
+                 <span className="fw-bold purple-gradient fs-4">Idea Section</span>
 
             {/* description + button*/}
             <div className="d-flex  justify-content-between  ">
@@ -167,9 +172,60 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                 </Button>
               </div>
             </div>
-          </div>
+           <IdeaCreate  />  </div>
+            ):
+            (
+              <div className="d-flex flex-column">    
+                 <span className="fw-bold purple-gradient fs-4">Query Section</span>
 
-          {idea ? <IdeaCreate /> : <QueryMaker />}
+            {/* description + button*/}
+            <div className="d-flex  justify-content-between  ">
+              {/* description */}
+              <div className="pt-2 p d-flex flex-column">
+                <span className="fw-bold purple-gradient fs-6">
+                  Choose your query to shower your ideas. Post if you have
+                </span>
+                <span className="fw-bold purple-gradient fs-6">
+                  any query to get some ideas{" "}
+                </span>
+              </div>
+
+              {/* query button */}
+              <div className="rounded-3 m-2  py-3 col-4 d-flex   justify-content-center gap-4  ">
+                <Button
+                  style={{
+                    borderRadius: "4px",
+                    boxShadow: "0px 5px 10px #0000005e",
+                  }}
+                  className="  bg-linearlr p-2 "
+                  variant="outlined"
+                  onClick={() => {
+                    setIdea(false);
+                  }}
+                >
+                  Your Query
+                </Button>
+
+                <Button
+                  style={{
+                    borderRadius: "4px",
+                    boxShadow: "0px 5px 10px #0000005e",
+                  }}
+                  className=" btn bg-linearlr p-1"
+                  variant="outlined"
+                  onClick={() => setOpen(true)}
+                >
+                  + Add Query
+                </Button>
+              </div>
+            </div>
+               <QueryMaker setIdea={setIdea} /></div>
+        
+            )
+        }
+          </>
+
+        
           
           
         </div>

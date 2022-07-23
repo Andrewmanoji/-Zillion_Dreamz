@@ -355,7 +355,11 @@ export default function DreamCommunity({ mob, tab }) {
             <AnimatePresence>{modalOpen && <ModalBody />}</AnimatePresence>
           </section>
         )}
+
+
       </div>
+
+      
       <Snackbar
         sx={{ ml: { md: "100px" } }}
         open={success}

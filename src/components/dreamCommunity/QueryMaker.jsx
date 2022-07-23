@@ -24,13 +24,14 @@ const PurpleTooltip = styled(({ className, ...props }) => (
   },
 }));
 
-export default function QueryMaker() {
+export default function QueryMaker({setIdea,idea}) {
   const data = useSelector((state) => state.queryMaker);
 
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [addopen, setaddOpen] = useState(false);
   const [alert, setAlert] = useState(false);
+
 
   const [values, setValues] = useState({
     query: "",
@@ -59,6 +60,7 @@ export default function QueryMaker() {
     setOpen(false);
     setaddOpen(false);
   };
+
 
   const [publicQueryId, setPublicQueryId] = useState(null);
 
@@ -100,8 +102,12 @@ export default function QueryMaker() {
                   </div>
                 </div>
                 {/* queries */}
-                <div className="bg-white  p-4 rounded-3 w-100">
-                  <p className="text-dark mb-0">{data.query}</p>
+
+                <div
+                  onClick={() => setIdea(true)}
+                  className="bg-white  p-4  rounded-3 w-100"
+                >
+                  <p className="text-dark mb-0 ">{data.query}</p>
                 </div>
               </div>
               {/* 
