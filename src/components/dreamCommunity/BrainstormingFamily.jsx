@@ -23,7 +23,7 @@ const theme = createTheme({
 });
 
 export default function BrainstormingFamily({ setBrainstroming, mob }) {
-  const [idea, setIdea] = useState(true);
+  const [idea, setIdea] = useState(false);
   const [menu, setMenu] = useState(10);
   const [open, setOpen] = useState(false);
   const [yourquery, setYourquery] = useState(false);
