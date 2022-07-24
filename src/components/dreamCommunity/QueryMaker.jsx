@@ -24,15 +24,87 @@ const PurpleTooltip = styled(({ className, ...props }) => (
   },
 }));
 
-export default function QueryMaker({setIdea,setYourquery,setAddquery}) {
-  const data = useSelector((state) => state.queryMaker);
+export default function QueryMaker({
+  setIdea,
+  setYourquery,
+  menu,
+  setAddquery,
+}) {
+  // const data = useSelector((state) => state.queryMaker);
+  const data = [
+    {
+      type: 20,
+      content: [
+        {
+          id: 1,
+          uname: "Selvin",
+
+          query:
+            "we are working with Smarty Template Engine in most of our projects which usually uses curly braces for expressions (i.e. {stuff happens}).Our local enviroment however uses <%stuff happens%> instead. I want to modify the language.json of the Smarty Template Support-Extension for VS-Code to properly highlight my code. I had good success with writing the regex for the regular code-blocks, however comment-blocks are not really working. Pictured hereInspection of the tokens reveals, that other scopes seem to take priority Pictured here",
+          idea: "Listen music",
+          sug: ["sug1"],
+        },
+        {
+          id: 2,
+          uname: "jayasurya",
+
+          query:
+            "we are working with Smarty Template Engine in most of our projects which usually uses curly braces for expressions (i.e. {stuff happens}).Our local enviroment however uses <%stuff happens%> instead. I want to modify the language.json of the Smarty Template Support-Extension for VS-Code to properly highlight my code. I had good success with writing the regex for the regular code-blocks, however comment-blocks are not really working. Pictured hereInspection of the tokens reveals, that other scopes seem to take priority Pictured here",
+
+          idea: "dance",
+          sug: ["sug2"],
+        },
+        {
+          id: 2,
+          uname: "Andrew",
+
+          query:
+            "we are working with Smarty Template Engine in most of our projects which usually uses curly braces for expressions (i.e. {stuff happens}).Our local enviroment however uses <%stuff happens%> instead. I want to modify the language.json of the Smarty Template Support-Extension for VS-Code to properly highlight my code. I had good success with writing the regex for the regular code-blocks, however comment-blocks are not really working. Pictured hereInspection of the tokens reveals, that other scopes seem to take priority Pictured here",
+
+          idea: "dance",
+          sug: ["sug2"],
+        },
+      ],
+    },
+    {
+      type: 30,
+      content: [
+        {
+          id: 1,
+          uname: "Manoji",
+
+          query:
+            " our projects which usually uses curly braces for expressions (i.e. {stuff happens}).Our local enviroment however uses <%stuff happens%> instead. I want to modify the language.json of the Smarty Template Support-Extension for VS-Code to properly highlight my code. I had good success with writing the regex for the regular code-blocks, however comment-blocks are not really working. Pictured hereInspection of the tokens reveals, that other scopes seem to take priority Pictured here",
+          idea: "Listen music",
+          sug: ["sug1"],
+        },
+        {
+          id: 2,
+          uname: "Andrew",
+
+          query:
+            " our projects which usually uses curly braces for expressions (i.e. {stuff happens}).Our local enviroment however uses <%stuff happens%> instead. I want to modify the language.json of the Smarty Template Support-Extension for VS-Code to properly highlight my code. I had good success with writing the regex for the regular code-blocks, however comment-blocks are not really working. Pictured hereInspection of the tokens reveals, that other scopes seem to take priority Pictured here",
+
+          idea: "dance",
+          sug: ["sug2"],
+        },
+        {
+          id: 2,
+          uname: "Jhon",
+          query:
+            " our projects which usually uses curly braces for expressions (i.e. {stuff happens}).Our local enviroment however uses <%stuff happens%> instead. I want to modify the language.json of the Smarty Template Support-Extension for VS-Code to properly highlight my code. I had good success with writing the regex for the regular code-blocks, however comment-blocks are not really working. Pictured hereInspection of the tokens reveals, that other scopes seem to take priority Pictured here",
+
+          idea: "dance",
+          sug: ["sug2"],
+        },
+      ],
+    },
+  ];
 
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [addopen, setaddOpen] = useState(false);
   const [alert, setAlert] = useState(false);
-
-
 
   const [values, setValues] = useState({
     query: "",
@@ -62,56 +134,64 @@ export default function QueryMaker({setIdea,setYourquery,setAddquery}) {
     setaddOpen(false);
   };
 
-
   const [publicQueryId, setPublicQueryId] = useState(null);
 
   return (
     <>
       <div className="rounded-4 bg-purple d-flex flex-column justify-content-evenly p-4 vh-70 w-100">
         {data &&
-          data.map((data, index) => (
-            <div className="d-flex  mb-2   align-items-start" key={index}>
-              {/* user name */}
-              <div className=" p-2 ps-1  pb-1 mb-sm-0 pb-sm-0  col-1     ">
-                <Avatar
-                  className="bg-linear  "
-                  // alt={logUser.username}
-                  // src={logUser.profile_pic.public_url}
-                  style={{
-                    boxShadow: "0px 5px 10px black",
-                    transform: "scale(1.2)",
-                    width: 50,
-                    height: 50,
-                  }}
-                />
-              </div>
+          data.map((dt, index) => {
+            if (dt.type == menu || menu == 10) {
+              console.log("hi");
+              return (
+                <>
+                  {dt.content.map((cont, ind) => {
+                    return (
+                      <div
+                        className="d-flex  mb-2   align-items-start"
+                        key={index}
+                      >
+                        {/* user name */}
+                        <div className=" p-2 ps-1  pb-1 mb-sm-0 pb-sm-0  col-1     ">
+                          <Avatar
+                            className="bg-linear  "
+                            // alt={logUser.username}
+                            // src={logUser.profile_pic.public_url}
+                            style={{
+                              boxShadow: "0px 5px 10px black",
+                              transform: "scale(1.2)",
+                              width: 50,
+                              height: 50,
+                            }}
+                          />
+                        </div>
 
-              <div className="d-flex flex-column  col-11 p-0 pl-0">
-                {/* </StyledBadge> */}
-                <div className="d-flex flex-sm-row mt-0  ms-0 pe-1 pe-sm-2 mb-sm-3   ">
-                  <div
-                    className="fw-bold pe-sm-2  d-flex "
-                    style={{ fontSize: 18 }}
-                  >
-                    <span
-                      className="fw-bold pe-sm-2 p-1 "
-                      style={{ fontSize: 18 }}
-                    >
-                      username
-                    </span>
-                    {/* {logUser.username} */}
-                  </div>
-                </div>
-                {/* queries */}
+                        <div className="d-flex flex-column  col-11 p-0 pl-0">
+                          {/* </StyledBadge> */}
+                          <div className="d-flex flex-sm-row mt-0  ms-0 pe-1 pe-sm-2 mb-sm-3   ">
+                            <div
+                              className="fw-bold pe-sm-2  d-flex "
+                              style={{ fontSize: 18 }}
+                            >
+                              <span
+                                className="fw-bold pe-sm-2 p-1 "
+                                style={{ fontSize: 18 }}
+                              >
+                                {cont.uname}
+                              </span>
+                              {/* {logUser.username} */}
+                            </div>
+                          </div>
+                          {/* queries */}
 
-                <div
-                  onClick={() => setIdea(true)}
-                  className="bg-white cursor-pointer p-4  rounded-3 w-100"
-                >
-                  <p className="text-dark mb-0 ">{data.query}</p>
-                </div>
-              </div>
-              {/* 
+                          <div
+                            onClick={() => setIdea(true)}
+                            className="bg-white cursor-pointer p-4  rounded-3 w-100"
+                          >
+                            <p className="text-dark mb-0 ">{cont.query}</p>
+                          </div>
+                        </div>
+                        {/* 
               <IconButton
                 aria-label="add"
                 size="large"
@@ -124,10 +204,13 @@ export default function QueryMaker({setIdea,setYourquery,setAddquery}) {
                 <LightbulbIcon fontSize="inherit" className="bg-purple" />
               
               </IconButton> */}
-            </div>
-
-            
-          ))}
+                      </div>
+                    );
+                  })}
+                </>
+              );
+            } else return null;
+          })}
 
         {/* <Dialog
           open={addopen}
@@ -153,11 +236,7 @@ export default function QueryMaker({setIdea,setYourquery,setAddquery}) {
             </IconButton>
           </PurpleTooltip>
         </div> */}
-     
       </div>
-
-
-      
 
       {/* <Dialog
         open={open}

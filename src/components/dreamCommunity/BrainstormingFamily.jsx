@@ -9,7 +9,7 @@ import IdeaCreate from "../dreamCommunity/IdeaCrate";
 import Select from "@mui/material/Select";
 import zvillasoon from "../../assets/images/zson.gif";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import AddQueries from "./AddQueries"
+import AddQueries from "./AddQueries";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import IdeaCrate from "../dreamCommunity/IdeaCrate";
 import { Divider } from "@mui/material";
@@ -23,12 +23,12 @@ const theme = createTheme({
 });
 
 export default function BrainstormingFamily({ setBrainstroming, mob }) {
-  const [idea, setIdea] = useState(false);
+  const [idea, setIdea] = useState(true);
   const [menu, setMenu] = useState(10);
   const [open, setOpen] = useState(false);
-  const[yourquery,setYourquery]=useState(false);
-  const[addquery,setAddquery]=useState(false)
-const[post,setPost]=useState(false)
+  const [yourquery, setYourquery] = useState(false);
+  const [addquery, setAddquery] = useState(false);
+  const [post, setPost] = useState(false);
 
   const handleChange = (event) => {
     setMenu(event.target.value);
@@ -118,8 +118,8 @@ const[post,setPost]=useState(false)
                 className="fw-bold bg-linearlr  p-2 "
                 variant="outlined"
                 onClick={() => {
-                  setPost(false)
-                  setIdea(true)
+                  setPost(false);
+                  setIdea(true);
                 }}
               >
                 Idea Crate
@@ -225,11 +225,11 @@ const[post,setPost]=useState(false)
                   </div>
 
                   {yourquery ? (
-                    <YourQueries  setIdea={setIdea}/>
+                    <YourQueries setIdea={setIdea} />
                   ) : addquery ? (
                     <AddQueries />
                   ) : (
-                    <QueryMaker setIdea={setIdea} />
+                    <QueryMaker menu={menu} setIdea={setIdea} />
                   )}
                 </div>
               </>

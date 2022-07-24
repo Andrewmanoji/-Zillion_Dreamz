@@ -32,7 +32,7 @@ export default function IdeaCrate({ setOpen ,setPost,post}) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [events, setEvents] = useState(false);
-  const data = useSelector((state) => state.queryMaker);
+  // const data = useSelector((state) => state.queryMaker);
 
   
 
@@ -105,7 +105,7 @@ export default function IdeaCrate({ setOpen ,setPost,post}) {
                   {/* queries */}
 
                   <div className="bg-white  p-4 rounded-3 w-100">
-                    <p className="text-dark mb-0">{data.query}</p>
+                    <p className="text-dark mb-0">Selected query</p>
                   </div>
                 </div>
 
