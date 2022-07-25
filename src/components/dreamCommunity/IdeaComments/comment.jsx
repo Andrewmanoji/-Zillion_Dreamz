@@ -69,7 +69,7 @@ const Comment = ({
         <div className="comment-actions">
           {canReply && (
             <div
-              className="comment-action"
+              className="comment-action text-white"
               onClick={() =>
                 setActiveComment({ id: comment.id, type: "replying" })
               }
@@ -79,7 +79,7 @@ const Comment = ({
           )}
           {canEdit && (
             <div
-              className="comment-action"
+              className="comment-action text-white"
               onClick={() =>
                 setActiveComment({ id: comment.id, type: "editing" })
               }
@@ -89,7 +89,7 @@ const Comment = ({
           )}
           {canDelete && (
             <div
-              className="comment-action"
+              className="comment-action text-white"
               onClick={() => deleteComment(comment.id)}
             >
               Delete
