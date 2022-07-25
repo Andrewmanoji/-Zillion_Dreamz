@@ -37,12 +37,11 @@ const PurpleTooltip = styled(({ className, ...props }) => (
   },
 }));
 
-export default function IdeaCrate({ setOpen, setPost,setComment, post }) {
+export default function IdeaCrate({ setOpen, setPost, setComment, post }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [events, setEvents] = useState(false);
   // const data = useSelector((state) => state.queryMaker);
-
 
   const [backendComments, setBackendComments] = useState([]);
   const [activeComment, setActiveComment] = useState(null);
@@ -57,10 +56,13 @@ export default function IdeaCrate({ setOpen, setPost,setComment, post }) {
           new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
       );
   const addComment = (text, parentId) => {
-    createCommentApi(text, parentId).then((comment) => {
-      setBackendComments([comment, ...backendComments]);
-      setActiveComment(null);
-    });
+    {
+      createCommentApi(text, parentId).then((comment) => {
+        setBackendComments([comment, ...backendComments]);
+        setActiveComment(null);
+      });
+      setPost(false);
+    }
   };
 
   const updateComment = (text, commentId) => {
@@ -86,9 +88,9 @@ export default function IdeaCrate({ setOpen, setPost,setComment, post }) {
     }
   };
 
-    const handleCancel = () => {
-      setActiveComment(null);
-    };
+  const handleCancel = () => {
+    setActiveComment(null);
+  };
 
   React.useEffect(() => {
     getCommentsApi().then((data) => {
@@ -285,7 +287,6 @@ export default function IdeaCrate({ setOpen, setPost,setComment, post }) {
                   />
                 ))}
               </div>{" "} */}
-            
               {post ? (
                 <>
                   <div>
@@ -295,6 +296,7 @@ export default function IdeaCrate({ setOpen, setPost,setComment, post }) {
                       hasCancelButton
                       handleCancel={() => {
                         setActiveComment(null);
+                        setPost(false);
                       }}
                     />
                   </div>
@@ -303,9 +305,7 @@ export default function IdeaCrate({ setOpen, setPost,setComment, post }) {
                 <Comments
                   commentsUrl="http://localhost:3004/comments"
                   currentUserId="1"
-                  
                 />
-                
 
                 // <>
                 //   {" "}
