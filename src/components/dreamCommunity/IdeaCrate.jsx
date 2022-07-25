@@ -16,6 +16,16 @@ import { endpoint, token, config } from "../../endpoint";
 import axios from "axios";
 import Avatar from "@mui/material/Avatar";
 
+import Comment from "./IdeaComments/comment";
+import CommentForm from "./IdeaComments/CommentForm";
+import Comments from "./IdeaComments/Comments";
+import {
+  getComments as getCommentsApi,
+  createComment as createCommentApi,
+  updateComment as updateCommentApi,
+  deleteComment as deleteCommentApi,
+} from "./api";
+
 const PurpleTooltip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
 ))(({ theme }) => ({
@@ -27,18 +37,94 @@ const PurpleTooltip = styled(({ className, ...props }) => (
   },
 }));
 
-export default function IdeaCrate({
-  setOpen,
-  setPost,
+export default function IdeaCrate({ setOpen, setPost,setComment,
   post,
   data,
   passdata,
-  content,
-}) {
+  content, }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [events, setEvents] = useState(false);
   // const data = useSelector((state) => state.queryMaker);
+
+
+  const [backendComments, setBackendComments] = useState([]);
+  const [activeComment, setActiveComment] = useState(null);
+  const rootComments = backendComments.filter(
+    (backendComment) => backendComment.parentId === null
+  );
+  const getReplies = (commentId) =>
+    backendComments
+      .filter((backendComment) => backendComment.parentId === commentId)
+      .sort(
+        (a, b) =>
+          new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+      );
+  const addComment = (text, parentId) => {
+    createCommentApi(text, parentId).then((comment) => {
+      setBackendComments([comment, ...backendComments]);
+      setActiveComment(null);
+    });
+  };
+
+  const updateComment = (text, commentId) => {
+    updateCommentApi(text).then(() => {
+      const updatedBackendComments = backendComments.map((backendComment) => {
+        if (backendComment.id === commentId) {
+          return { ...backendComment, body: text };
+        }
+        return backendComment;
+      });
+      setBackendComments(updatedBackendComments);
+      setActiveComment(null);
+    });
+  };
+  const deleteComment = (commentId) => {
+    if (window.confirm("Are you sure you want to remove comment?")) {
+      deleteCommentApi().then(() => {
+        const updatedBackendComments = backendComments.filter(
+          (backendComment) => backendComment.id !== commentId
+        );
+        setBackendComments(updatedBackendComments);
+      });
+    }
+  };
+
+    const handleCancel = () => {
+      setActiveComment(null);
+    };
+
+  React.useEffect(() => {
+    getCommentsApi().then((data) => {
+      setBackendComments(data);
+    });
+  }, []);
+
+  const Comments = ({ commentsUrl, currentUserId }) => {
+    return (
+      <div className="comments ">
+        {/* <h3 className="comments-title">Comments</h3>
+      <div className="comment-form-title">Write comment</div> */}
+        {/* <CommentForm submitLabel="Post" handleSubmit={addComment} /> */}
+
+        <div>
+          {rootComments.map((rootComment) => (
+            <Comment
+              key={rootComment.id}
+              comment={rootComment}
+              replies={getReplies(rootComment.id)}
+              activeComment={activeComment}
+              setActiveComment={setActiveComment}
+              addComment={addComment}
+              deleteComment={deleteComment}
+              updateComment={updateComment}
+              currentUserId={currentUserId}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  };
 
   const userQuery = useSelector((state) => state.ideaCreate);
   axios.get(`${endpoint}/question/61b8058c79c371bf4d7fe36c`, config);
@@ -169,157 +255,116 @@ export default function IdeaCrate({
         </DialogContent>
       
       </Dialog> */}
+
+            {/* <div>
+              {rootComments.map((rootComment) => (
+                <Comment
+                  key={rootComment.id}
+                  comment={rootComment}
+                  replies={getReplies(rootComment.id)}
+                  activeComment={activeComment}
+                  setActiveComment={setActiveComment}
+                  addComment={addComment}
+                  deleteComment={deleteComment}
+                  updateComment={updateComment}
+                  currentUserId={currentUserId}
+                />
+              ))}
+            </div> */}
           </>
 
           <div className="divide"></div>
 
           <div className="rounded-4  d-flex flex-column justify-content-evenly p-4 vh-90 w-100">
             <>
-              {" "}
+              {/* <div className="comments-container">
+                {rootComments.map((rootComment) => (
+                  <Comment
+                    key={rootComment.id}
+                    comment={rootComment}
+                    replies={getReplies(rootComment.id)}
+                    activeComment={activeComment}
+                    setActiveComment={setActiveComment}
+                    addComment={addComment}
+                    deleteComment={deleteComment}
+                    updateComment={updateComment}
+                    // currentUserId={currentUserId}
+                  />
+                ))}
+              </div>{" "} */}
+            
               {post ? (
                 <>
-                  <div className="d-flex  mb-2   align-items-start">
-                    {/* user name */}
-                    <div className=" p-2 ps-1  pb-1 mb-sm-0 pb-sm-0  col-1     ">
-                      <Avatar
-                        className="bg-linear  "
-                        // alt={logUser.username}
-                        // src={logUser.profile_pic.public_url}
-                        style={{
-                          boxShadow: "0px 5px 10px black",
-                          transform: "scale(1.2)",
-                          width: 50,
-                          height: 50,
-                        }}
-                      />
-                    </div>
-
-                    <div className="d-flex flex-column  col-11 p-0 pl-0">
-                      {/* </StyledBadge> */}
-                      <div className="d-flex flex-sm-row mt-0  ms-0 pe-1 pe-sm-2 mb-sm-3   ">
-                        <div
-                          className="fw-bold pe-sm-2  d-flex "
-                          style={{ fontSize: 18 }}
-                        >
-                          <span
-                            className="fw-bold pe-sm-2 p-1 "
-                            style={{ fontSize: 18 }}
-                          >
-                            username
-                          </span>
-                          {/* {logUser.username} */}
-                        </div>
-                      </div>
-                      {/* queries */}
-
-                      <div className="form-floating m-3 w-100 ">
-                        <input
-                          type="text"
-                          className="form-control curve no-out"
-                          id="floatingInput"
-                          onChange={(e) =>
-                            setUserData({ ...userData, query: e.target.value })
-                          }
-                        />
-                        <label className="text-dark" for="floatingInput">
-                          Idea Create
-                        </label>
-                      </div>
-
-                      <div className="align-items-right justify-content-end mx-5 mt-md-3">
-                        <DialogActions>
-                          <Button
-                            className="bg-white purple mx-1 mb-3 my-2"
-                            variant="contained"
-                            onClick={() => {
-                              setPost(false);
-                              setOpen(true);
-                            }}
-                          >
-                            Cancel
-                          </Button>
-                          <Button
-                            className="bg-white purple mb-3 my-2"
-                            variant="contained"
-                            onClick={() => {
-                              handleSubmit();
-                              setPost(false);
-                            }}
-                          >
-                            Post
-                          </Button>
-                        </DialogActions>
-                      </div>
-                      {/* <p className="text-dark mb-0">{data.query}</p> */}
-                    </div>
-
-                    {/* 
-              <IconButton
-                aria-label="add"
-                size="large"
-                type="button"
-                onClick={() => {
-                  setPublicQueryId(data.id);
-                  setaddOpen(true);
-                }}
-              >
-                <LightbulbIcon fontSize="inherit" className="bg-purple" />
-              
-              </IconButton> */}
+                  <div>
+                    <CommentForm
+                      submitLabel="Post"
+                      handleSubmit={addComment}
+                      hasCancelButton
+                      handleCancel={() => {
+                        setActiveComment(null);
+                      }}
+                    />
                   </div>
                 </>
               ) : (
-                <>
-                  {" "}
-                  {userQuery.map((val, index) => {
-                    if (val.query !== null) {
-                      return (
-                        <>
-                          <div>
-                            <div className="d-flex  mb-2   align-items-start">
-                              {/* user name */}
-                              <div className=" p-2 ps-1  pb-1 mb-sm-0 pb-sm-0  col-1     ">
-                                <Avatar
-                                  className="bg-linear  "
-                                  // alt={logUser.username}
-                                  // src={logUser.profile_pic.public_url}
-                                  style={{
-                                    boxShadow: "0px 5px 10px black",
-                                    transform: "scale(1.2)",
-                                    width: 50,
-                                    height: 50,
-                                  }}
-                                />
-                              </div>
+                <Comments
+                  commentsUrl="http://localhost:3004/comments"
+                  currentUserId="1"
+                  
+                />
+                
 
-                              <div className="d-flex flex-column  col-11 p-0 pl-0">
-                                {/* </StyledBadge> */}
-                                <div className="d-flex flex-sm-row mt-0  ms-0 pe-1 pe-sm-2 mb-sm-3   ">
-                                  <div
-                                    className="fw-bold pe-sm-2  d-flex "
-                                    style={{ fontSize: 18 }}
-                                  >
-                                    <span
-                                      className="fw-bold pe-sm-2 p-1 "
-                                      style={{ fontSize: 18 }}
-                                    >
-                                      username
-                                    </span>
-                                    {/* {logUser.username} */}
-                                  </div>
-                                </div>
-                                {/* queries */}
-                                <div className="bg-white  p-4  rounded-3 w-100">
-                                  <p className="text-dark mb-0 ">{val.query}</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </>
-                      );
-                    }
-                  })}
-                </>
+                // <>
+                //   {" "}
+                //   {userQuery.map((val, index) => {
+                //     if (val.query !== null) {
+                //       return (
+                //         <>
+                //           <div>
+                //             <div className="d-flex  mb-2   align-items-start">
+                //               {/* user name */}
+                //               <div className=" p-2 ps-1  pb-1 mb-sm-0 pb-sm-0  col-1     ">
+                //                 <Avatar
+                //                   className="bg-linear  "
+                //                   // alt={logUser.username}
+                //                   // src={logUser.profile_pic.public_url}
+                //                   style={{
+                //                     boxShadow: "0px 5px 10px black",
+                //                     transform: "scale(1.2)",
+                //                     width: 50,
+                //                     height: 50,
+                //                   }}
+                //                 />
+                //               </div>
+
+                //               <div className="d-flex flex-column  col-11 p-0 pl-0">
+                //                 {/* </StyledBadge> */}
+                //                 <div className="d-flex flex-sm-row mt-0  ms-0 pe-1 pe-sm-2 mb-sm-3   ">
+                //                   <div
+                //                     className="fw-bold pe-sm-2  d-flex "
+                //                     style={{ fontSize: 18 }}
+                //                   >
+                //                     <span
+                //                       className="fw-bold pe-sm-2 p-1 "
+                //                       style={{ fontSize: 18 }}
+                //                     >
+                //                       username
+                //                     </span>
+                //                     {/* {logUser.username} */}
+                //                   </div>
+                //                 </div>
+                //                 {/* queries */}
+                //                 <div className="bg-white  p-4  rounded-3 w-100">
+                //                   <p className="text-dark mb-0 ">{val.query}</p>
+                //                 </div>
+                //               </div>
+                //             </div>
+                //           </div>
+                //         </>
+                //       );
+                //     }
+                //   })}
+                // </>
               )}{" "}
             </>
 
@@ -355,3 +400,93 @@ export default function IdeaCrate({
     </>
   );
 }
+
+//     <div className="d-flex  mb-2   align-items-start">
+//       {/* user name */}
+//       <div className=" p-2 ps-1  pb-1 mb-sm-0 pb-sm-0  col-1     ">
+//         <Avatar
+//           className="bg-linear  "
+//           // alt={logUser.username}
+//           // src={logUser.profile_pic.public_url}
+//           style={{
+//             boxShadow: "0px 5px 10px black",
+//             transform: "scale(1.2)",
+//             width: 50,
+//             height: 50,
+//           }}
+//         />
+//       </div>
+
+//       <div className="d-flex flex-column  col-11 p-0 pl-0">
+//         {/* </StyledBadge> */}
+//         <div className="d-flex flex-sm-row mt-0  ms-0 pe-1 pe-sm-2 mb-sm-3   ">
+//           <div
+//             className="fw-bold pe-sm-2  d-flex "
+//             style={{ fontSize: 18 }}
+//           >
+//             <span
+//               className="fw-bold pe-sm-2 p-1 "
+//               style={{ fontSize: 18 }}
+//             >
+//               username
+//             </span>
+//             {/* {logUser.username} */}
+//           </div>
+//         </div>
+//         {/* queries */}
+
+//         <div className="form-floating m-3 w-100 ">
+//           <input
+//             type="text"
+//             className="form-control curve no-out"
+//             id="floatingInput"
+//             onChange={(e) =>
+//               setUserData({ ...userData, query: e.target.value })
+//             }
+//           />
+//           <label className="text-dark" for="floatingInput">
+//             Idea Create
+//           </label>
+//         </div>
+
+//         <div className="align-items-right justify-content-end mx-5 mt-md-3">
+//           <DialogActions>
+//             <Button
+//               className="bg-white purple mx-1 mb-3 my-2"
+//               variant="contained"
+//               onClick={() => {
+//                 setPost(false);
+//                 setOpen(true);
+//               }}
+//             >
+//               Cancel
+//             </Button>
+//             <Button
+//               className="bg-white purple mb-3 my-2"
+//               variant="contained"
+//               onClick={() => {
+//                 handleSubmit();
+//                 setPost(false);
+//               }}
+//             >
+//               Post
+//             </Button>
+//           </DialogActions>
+//         </div>
+//         {/* <p className="text-dark mb-0">{data.query}</p> */}
+//       </div>
+
+//       {/*
+// <IconButton
+//   aria-label="add"
+//   size="large"
+//   type="button"
+//   onClick={() => {
+//     setPublicQueryId(data.id);
+//     setaddOpen(true);
+//   }}
+// >
+//   <LightbulbIcon fontSize="inherit" className="bg-purple" />
+
+// </IconButton> */}
+//     </div>;

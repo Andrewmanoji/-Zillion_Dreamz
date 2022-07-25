@@ -26,6 +26,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
   const [idea, setIdea] = useState(false);
   const [menu, setMenu] = useState(10);
   const [open, setOpen] = useState(false);
+  const [Comment, setComment] = useState(true);
   const [yourquery, setYourquery] = useState(false);
   const [addquery, setAddquery] = useState(false);
   const [post, setPost] = useState(false);
@@ -232,6 +233,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                       onClick={() => {
                         setPost(true);
                         setOpen(true);
+                        setComment(false);
                       }}
                     >
                       + Add ideas
@@ -244,6 +246,8 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                   setPost={setPost}
                   passdata={passdata}
                   content={content}
+                  // setPost={setPost}
+                  setComment={setComment}
                   post={post}
                 />
               </div>
