@@ -37,7 +37,11 @@ const PurpleTooltip = styled(({ className, ...props }) => (
   },
 }));
 
-export default function IdeaCrate({ setOpen, setPost, setComment, post }) {
+export default function IdeaCrate({ setOpen, setPost,setComment,
+  post,
+  data,
+  passdata,
+  content, }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [events, setEvents] = useState(false);
@@ -131,6 +135,9 @@ export default function IdeaCrate({ setOpen, setPost, setComment, post }) {
     query: "",
   });
 
+  const passedData = data[passdata].content[content];
+  console.log(passedData);
+
   function handleSubmit() {
     let noofErrors = 0;
     Object.values(userData).forEach((val) => {
@@ -185,7 +192,7 @@ export default function IdeaCrate({ setOpen, setPost, setComment, post }) {
                         className="fw-bold pe-sm-2 p-1 "
                         style={{ fontSize: 18 }}
                       >
-                        username
+                        {passedData.uname}
                       </span>
                       {/* {logUser.username} */}
                     </div>
@@ -193,7 +200,7 @@ export default function IdeaCrate({ setOpen, setPost, setComment, post }) {
                   {/* queries */}
 
                   <div className="bg-white  p-4 rounded-3 w-100">
-                    <p className="text-dark mb-0">Selected query</p>
+                    <p className="text-dark mb-0">{passedData.query}</p>
                   </div>
                 </div>
 

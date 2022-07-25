@@ -12,6 +12,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import { useSelector } from "react-redux";
 import Avatar from "@mui/material/Avatar";
+import { stepContentClasses } from "@mui/material";
 
 const PurpleTooltip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
@@ -29,77 +30,13 @@ export default function QueryMaker({
   setYourquery,
   menu,
   setAddquery,
+  data,
+  setContent,
+  setPassdata,
 }) {
   // const data = useSelector((state) => state.queryMaker);
-  const data = [
-    {
-      type: 20,
-      content: [
-        {
-          id: 1,
-          uname: "Selvin",
 
-          query:
-            " uses curly braces for expressions (i.e. {stuff happens}).Our local enviroment however uses <%stuff happens%> instead. I want to modify the language.json of the Smarty Template Support-Extension for VS-Code to properly highlight my code. I had good success with writing the regex for the regular code-blocks, however comment-blocks are not really working. Pictured hereInspection of the tokens reveals, that other scopes seem to take priority Pictured here",
-          idea: "Listen music",
-          sug: ["sug1"],
-        },
-        {
-          id: 2,
-          uname: "jayasurya",
-
-          query:
-            "uses curly braces for expressions (i.e. {stuff happens}).Our local enviroment however uses <%stuff happens%> instead. I want to modify the language.json of the Smarty Template Support-Extension for VS-Code to properly highlight my code. I had good success with writing the regex for the regular code-blocks, however comment-blocks are not really working. Pictured hereInspection of the tokens reveals, that other scopes seem to take priority Pictured here",
-
-          idea: "dance",
-          sug: ["sug2"],
-        },
-        {
-          id: 2,
-          uname: "Andrew",
-
-          query:
-            " uses curly braces for expressions (i.e. {stuff happens}).Our local enviroment however uses <%stuff happens%> instead. I want to modify the language.json of the Smarty Template Support-Extension for VS-Code to properly highlight my code. I had good success with writing the regex for the regular code-blocks, however comment-blocks are not really working. Pictured hereInspection of the tokens reveals, that other scopes seem to take priority Pictured here",
-
-          idea: "dance",
-          sug: ["sug2"],
-        },
-      ],
-    },
-    {
-      type: 30,
-      content: [
-        {
-          id: 1,
-          uname: "Manoji",
-
-          query:
-            " our projects which usually uses curly braces for expressions (i.e. {stuff happens}).Our local enviroment however uses <%stuff happens%> instead. I want to modify the language.json of the Smarty Template Support-Extension for VS-Code to properly highlight my code. I had good success with writing the regex for the regular code-blocks, however comment-blocks are not really working. Pictured hereInspection of the tokens reveals, that other scopes seem to take priority Pictured here",
-          idea: "Listen music",
-          sug: ["sug1"],
-        },
-        {
-          id: 2,
-          uname: "Andrew",
-
-          query:
-            " our projects which usually uses curly braces for expressions (i.e. {stuff happens}).Our local enviroment however uses <%stuff happens%> instead. I want to modify the language.json of the Smarty Template Support-Extension for VS-Code to properly highlight my code. I had good success with writing the regex for the regular code-blocks, however comment-blocks are not really working. Pictured hereInspection of the tokens reveals, that other scopes seem to take priority Pictured here",
-
-          idea: "dance",
-          sug: ["sug2"],
-        },
-        {
-          id: 2,
-          uname: "Jhon",
-          query:
-            " our projects which usually uses curly braces for expressions (i.e. {stuff happens}).Our local enviroment however uses <%stuff happens%> instead. I want to modify the language.json of the Smarty Template Support-Extension for VS-Code to properly highlight my code. I had good success with writing the regex for the regular code-blocks, however comment-blocks are not really working. Pictured hereInspection of the tokens reveals, that other scopes seem to take priority Pictured here",
-
-          idea: "dance",
-          sug: ["sug2"],
-        },
-      ],
-    },
-  ];
+  // console.log(data[0].content[1]);
 
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
@@ -142,7 +79,6 @@ export default function QueryMaker({
         {data &&
           data.map((dt, index) => {
             if (dt.type == menu || menu == 10) {
-              // console.log("hi");
               return (
                 <>
                   {dt.content.map((cont, ind) => {
@@ -185,7 +121,11 @@ export default function QueryMaker({
                           {/* queries */}
 
                           <div
-                            onClick={() => setIdea(true)}
+                            onClick={() => {
+                              setIdea(true);
+                              setContent(ind);
+                              setPassdata(index);
+                            }}
                             className="bg-white cursor-pointer p-4  rounded-3 w-100"
                           >
                             <p className="text-dark mb-0 ">{cont.query}</p>
