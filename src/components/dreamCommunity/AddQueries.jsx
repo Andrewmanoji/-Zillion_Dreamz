@@ -27,7 +27,7 @@ const PurpleTooltip = styled(({ className, ...props }) => (
   },
 }));
 
-export default function IdeaCrate({ setOpen }) {
+export default function AddQueries({ setOpen,setAddquery,setYourquery }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [events, setEvents] = useState(false);
@@ -56,7 +56,9 @@ export default function IdeaCrate({ setOpen }) {
         })
       );
       axios.post(`${endpoint}/question`, { data }, config);
-    }
+    };
+    setAddquery(false);
+    setYourquery(true)
   }
   return (
     <>
@@ -163,7 +165,7 @@ export default function IdeaCrate({ setOpen }) {
                     <Button
                       className="bg-white purple mx-1 mb-3 my-2"
                       variant="contained"
-                      onClick={() => setOpen(false)}
+                      onClick={() => {setAddquery(false)}}
                     >
                       Cancel
                     </Button>

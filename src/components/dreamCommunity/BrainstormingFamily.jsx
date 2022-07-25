@@ -309,7 +309,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                   {yourquery ? (
                     <YourQueries setIdea={setIdea} />
                   ) : addquery ? (
-                    <AddQueries />
+                    <AddQueries  setAddquery={setAddquery} setYourquery={setYourquery}/>
                   ) : (
                     <QueryMaker
                       menu={menu}
