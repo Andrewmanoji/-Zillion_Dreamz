@@ -16,7 +16,6 @@ import { endpoint, token, config } from "../../endpoint";
 import axios from "axios";
 import Avatar from "@mui/material/Avatar";
 
-
 const PurpleTooltip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
 ))(({ theme }) => ({
@@ -28,20 +27,28 @@ const PurpleTooltip = styled(({ className, ...props }) => (
   },
 }));
 
-export default function IdeaCrate({ setOpen ,setPost,post}) {
+export default function IdeaCrate({
+  setOpen,
+  setPost,
+  post,
+  data,
+  passdata,
+  content,
+}) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [events, setEvents] = useState(false);
   // const data = useSelector((state) => state.queryMaker);
 
-  
-
- const userQuery = useSelector((state) => state.ideaCreate);
- axios.get(`${endpoint}/question/61b8058c79c371bf4d7fe36c`, config);
+  const userQuery = useSelector((state) => state.ideaCreate);
+  axios.get(`${endpoint}/question/61b8058c79c371bf4d7fe36c`, config);
 
   const [userData, setUserData] = useState({
     query: "",
   });
+
+  const passedData = data[passdata].content[content];
+  console.log(passedData);
 
   function handleSubmit() {
     let noofErrors = 0;
@@ -97,7 +104,7 @@ export default function IdeaCrate({ setOpen ,setPost,post}) {
                         className="fw-bold pe-sm-2 p-1 "
                         style={{ fontSize: 18 }}
                       >
-                        username
+                        {passedData.uname}
                       </span>
                       {/* {logUser.username} */}
                     </div>
@@ -105,7 +112,7 @@ export default function IdeaCrate({ setOpen ,setPost,post}) {
                   {/* queries */}
 
                   <div className="bg-white  p-4 rounded-3 w-100">
-                    <p className="text-dark mb-0">Selected query</p>
+                    <p className="text-dark mb-0">{passedData.query}</p>
                   </div>
                 </div>
 

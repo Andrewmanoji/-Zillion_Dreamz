@@ -29,6 +29,78 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
   const [yourquery, setYourquery] = useState(false);
   const [addquery, setAddquery] = useState(false);
   const [post, setPost] = useState(false);
+  const [passdata, setPassdata] = useState(null);
+  const [content, setContent] = useState(null);
+
+  const data = [
+    {
+      type: 20,
+      content: [
+        {
+          id: 1,
+          uname: "Selvin",
+
+          query:
+            " uses curly braces for expressions (i.e. {stuff happens}).Our local enviroment however uses <%stuff happens%> instead. I want to modify the language.json of the Smarty Template Support-Extension for VS-Code to properly highlight my code. I had good success with writing the regex for the regular code-blocks, however comment-blocks are not really working. Pictured hereInspection of the tokens reveals, that other scopes seem to take priority Pictured here",
+          idea: "Listen music",
+          sug: ["sug1"],
+        },
+        {
+          id: 2,
+          uname: "jayasurya",
+
+          query:
+            "uses curly braces for expressions (i.e. {stuff happens}).Our local enviroment however uses <%stuff happens%> instead. I want to modify the language.json of the Smarty Template Support-Extension for VS-Code to properly highlight my code. I had good success with writing the regex for the regular code-blocks, however comment-blocks are not really working. Pictured hereInspection of the tokens reveals, that other scopes seem to take priority Pictured here",
+
+          idea: "dance",
+          sug: ["sug2"],
+        },
+        {
+          id: 2,
+          uname: "Andrew",
+
+          query:
+            " uses curly braces for expressions (i.e. {stuff happens}).Our local enviroment however uses <%stuff happens%> instead. I want to modify the language.json of the Smarty Template Support-Extension for VS-Code to properly highlight my code. I had good success with writing the regex for the regular code-blocks, however comment-blocks are not really working. Pictured hereInspection of the tokens reveals, that other scopes seem to take priority Pictured here",
+
+          idea: "dance",
+          sug: ["sug2"],
+        },
+      ],
+    },
+    {
+      type: 30,
+      content: [
+        {
+          id: 1,
+          uname: "Manoji",
+
+          query:
+            " our projects which usually uses curly braces for expressions (i.e. {stuff happens}).Our local enviroment however uses <%stuff happens%> instead. I want to modify the language.json of the Smarty Template Support-Extension for VS-Code to properly highlight my code. I had good success with writing the regex for the regular code-blocks, however comment-blocks are not really working. Pictured hereInspection of the tokens reveals, that other scopes seem to take priority Pictured here",
+          idea: "Listen music",
+          sug: ["sug1"],
+        },
+        {
+          id: 2,
+          uname: "Andrew",
+
+          query:
+            " our projects which usually uses curly braces for expressions (i.e. {stuff happens}).Our local enviroment however uses <%stuff happens%> instead. I want to modify the language.json of the Smarty Template Support-Extension for VS-Code to properly highlight my code. I had good success with writing the regex for the regular code-blocks, however comment-blocks are not really working. Pictured hereInspection of the tokens reveals, that other scopes seem to take priority Pictured here",
+
+          idea: "dance",
+          sug: ["sug2"],
+        },
+        {
+          id: 2,
+          uname: "Jhon",
+          query:
+            " our projects which usually uses curly braces for expressions (i.e. {stuff happens}).Our local enviroment however uses <%stuff happens%> instead. I want to modify the language.json of the Smarty Template Support-Extension for VS-Code to properly highlight my code. I had good success with writing the regex for the regular code-blocks, however comment-blocks are not really working. Pictured hereInspection of the tokens reveals, that other scopes seem to take priority Pictured here",
+
+          idea: "dance",
+          sug: ["sug2"],
+        },
+      ],
+    },
+  ];
 
   const handleChange = (event) => {
     setMenu(event.target.value);
@@ -167,7 +239,13 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                   </div>
                 </div>
 
-                <IdeaCreate setPost={setPost} post={post} />
+                <IdeaCreate
+                  data={data}
+                  setPost={setPost}
+                  passdata={passdata}
+                  content={content}
+                  post={post}
+                />
               </div>
             ) : (
               <>
@@ -229,7 +307,13 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                   ) : addquery ? (
                     <AddQueries />
                   ) : (
-                    <QueryMaker menu={menu} setIdea={setIdea} />
+                    <QueryMaker
+                      menu={menu}
+                      data={data}
+                      setPassdata={setPassdata}
+                      setContent={setContent}
+                      setIdea={setIdea}
+                    />
                   )}
                 </div>
               </>
