@@ -21,7 +21,7 @@ const CommentForm = ({
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
-      <button
+      <div className="d-flex justify-content-end"><button
         className="comment-form-button bg-white text-dark "
         
         // disabled={isTextareaDisabled}
@@ -36,7 +36,8 @@ const CommentForm = ({
         >
           Cancel
         </button>
-      )}
+      )}</div>
+      
     </form>
   );
 };

@@ -37,7 +37,7 @@ const Comment = ({
             // alt={logUser.username}
             // src={logUser.profile_pic.public_url}
             style={{
-              boxShadow: "0px 5px 10px black",
+              // boxShadow: "0px 5px 10px black",
               transform: "scale(1.2)",
               width: 30,
               height: 30,
@@ -46,7 +46,7 @@ const Comment = ({
         </div>
       </div>
       <div className="comment-right-part">
-        <div className="comment-content">
+        <div className="comment-content d-flex justify-content-between">
           <div className="comment-author text-white">{comment.username}</div>
           <div>{createdAt}</div>
         </div>
@@ -66,7 +66,7 @@ const Comment = ({
             }}
           />
         )}
-        <div className="comment-actions">
+        <div className="comment-actions d-flex jus">
           {canReply && (
             <div
               className="comment-action text-white"
@@ -84,7 +84,7 @@ const Comment = ({
                 setActiveComment({ id: comment.id, type: "editing" })
               }
             >
-              Edit
+             Voting
             </div>
           )}
           {canDelete && (

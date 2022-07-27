@@ -94,7 +94,7 @@ export default function QueryMaker({
                             // alt={logUser.username}
                             // src={logUser.profile_pic.public_url}
                             style={{
-                              boxShadow: "0px 5px 10px black",
+                              // boxShadow: "0px 5px 10px black",
                               transform: "scale(1.2)",
                               width: 50,
                               height: 50,

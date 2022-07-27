@@ -20,7 +20,7 @@ export default function YourQueries({setIdea,setYourquery,setAddquery}) {
         if (val.query !== null) {
           return (
 <>
-  <div className="d-flex  mb-2  align-items-start">
+  <div className="d-flex  mb-2 pt-4 align-items-start">
                 {/* user name */}
                 <div className=" p-2 ps-1  pb-1 mb-sm-0 pb-sm-0  col-1     ">
                   <Avatar
@@ -28,7 +28,7 @@ export default function YourQueries({setIdea,setYourquery,setAddquery}) {
                     // alt={logUser.username}
                     // src={logUser.profile_pic.public_url}
                     style={{
-                      boxShadow: "0px 5px 10px black",
+                      // boxShadow: "0px 5px 10px black",
                       transform: "scale(1.2)",
                       width: 50,
                       height: 50,

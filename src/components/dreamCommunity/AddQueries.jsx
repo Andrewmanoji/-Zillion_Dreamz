@@ -15,7 +15,7 @@ import DialogActions from "@mui/material/DialogActions";
 import { endpoint, token, config } from "../../endpoint";
 import axios from "axios";
 import Avatar from "@mui/material/Avatar";
-
+// 
 const PurpleTooltip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
 ))(({ theme }) => ({
@@ -121,7 +121,7 @@ export default function AddQueries({ setOpen,setAddquery,setYourquery }) {
                   // alt={logUser.username}
                   // src={logUser.profile_pic.public_url}
                   style={{
-                    boxShadow: "0px 5px 10px black",
+                    // boxShadow: "0px 5px 10px black",
                     transform: "scale(1.2)",
                     width: 50,
                     height: 50,

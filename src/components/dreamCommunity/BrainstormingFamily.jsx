@@ -134,12 +134,12 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
 
       <ThemeProvider theme={theme}>
         {/* Full container */}
-        <div className="container my-4">
+        <div className="container my-4 ">
           {/* upper half */}
           <div className="d-flex  justify-content-between   py-3">
             {/* Zd menu  */}
-            <div className="  d-flex justify-content-between col-7 ">
-              <span className="fw-bold purple-gradient fs-3">
+            <div className="  d-flex px-2 justify-content-between col-7 ">
+              <span className="fw-bold purple-gradient  fs-3">
                 Select Your ZD Menu
               </span>
 
@@ -148,28 +148,35 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                   style={{
                     borderRadius: "7px",
                   }}
-                  labelId="demo-simple-select-filled-label"
-                  id="demo-simple-select-filled"
-                  className=" bg-linearlr  "
+                  // labelId="demo-simple-select-filled-label"
+                  // id="demo-simple-select-filled"
+                  className=" bg-linearlr bg- "
                   value={menu}
                   label="menu"
                   onChange={handleChange}
                 >
-                  <MenuItem value={10}>General</MenuItem>
+                  <MenuItem value={10}>
+                    <span>General</span>
+                  </MenuItem>
                   <Divider color="bg-purple" />
-                  <MenuItem value={20}>Business</MenuItem>
+                  <MenuItem value={20}>
+                    <span>Business</span>
+                  </MenuItem>
                   <Divider color="bg-purple" />
-                  <MenuItem value={30}>Education</MenuItem>
+                  <MenuItem value={30}>
+                 
+                    <span>Education</span>
+                  </MenuItem>
                 </Select>
               </FormControl>
             </div>
 
             {/* button */}
-            <div className="bg-grey rounded-3  mx-3 px-5 col-4 py-4 d-flex gap-4 flex-column  ">
+            <div className="rounded-3  mx-3 px-5 col-4 py-4 d-flex gap-4 flex-column bg-hash">
               <Button
                 style={{
                   borderRadius: "4px",
-                  boxShadow: "0px 5px 10px #0000005e",
+                  // boxShadow: "0px 5px 10px #0000005e",
                 }}
                 className="fw-bold bg-linearlr p-2 "
                 variant="outlined"
@@ -180,22 +187,22 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                   setPost(false);
                 }}
               >
-                Query Maker
+                <span className="white"> Query Maker</span>
               </Button>
 
               <Button
                 style={{
                   borderRadius: "4px",
-                  boxShadow: "0px 5px 10px #0000005e",
+                  // boxShadow: "0px 5px 10px #0000005e",
                 }}
                 className="fw-bold bg-linearlr  p-2 "
                 variant="outlined"
                 onClick={() => {
-                  setPost(false);
-                  setIdea(true);
+                  // setPost(false);
+                  // setIdea(true);
                 }}
               >
-                Idea Crate
+                <span className="white"> Idea Crate</span>
               </Button>
             </div>
           </div>
@@ -204,15 +211,16 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
 
           <>
             {idea ? (
-              <div className="d-flex flex-column">
-                <span className="fw-bold purple-gradient fs-4">
+              <div className="d-flex flex-column ">
+                <div className="px-2">   <span className="fw-bold purple-gradient fs-4">
                   Idea Section
-                </span>
+                </span></div>
+             
 
                 {/* description + button*/}
                 <div className="d-flex  justify-content-between">
                   {/* description */}
-                  <div className="pt-2 p d-flex  flex-column">
+                  <div className="pt-2 px-2 d-flex  flex-column">
                     <span className="fw-bold purple-gradient fs-6">
                       Choose your query to shower your ideas. Post if you have
                     </span>
@@ -226,9 +234,9 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                     <Button
                       style={{
                         borderRadius: "4px",
-                        boxShadow: "0px 5px 10px #0000005e",
+                        // boxShadow: "0px 5px 10px #0000005e",
                       }}
-                      className=" btn bg-linearlr me-0 p-1"
+                      className=" btn bg-linearlr me-0 p-2"
                       variant="outlined"
                       onClick={() => {
                         setPost(true);
@@ -236,7 +244,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                         setComment(false);
                       }}
                     >
-                      + Add ideas
+                      <span className="white"> + Add ideas</span>
                     </Button>
                   </div>
                 </div>
@@ -254,14 +262,15 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
             ) : (
               <>
                 <div className="d-flex flex-column">
-                  <span className="fw-bold purple-gradient fs-4">
+                  <div className="px-2"> <span className="fw-bold purple-gradient fs-4">
                     Query Section
-                  </span>
+                  </span></div>
+                 
 
                   {/* description + button*/}
                   <div className="d-flex  justify-content-between  ">
                     {/* description */}
-                    <div className="pt-2 p d-flex flex-column">
+                    <div className="pt-2 px-2 d-flex flex-column">
                       <span className="fw-bold purple-gradient fs-6">
                         Choose your query to shower your ideas. Post if you have
                       </span>
@@ -275,9 +284,9 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                       <Button
                         style={{
                           borderRadius: "4px",
-                          boxShadow: "0px 5px 10px #0000005e",
+                          // boxShadow: "0px 5px 10px #0000005e",
                         }}
-                        className="  bg-linearlr p-1 "
+                        className="  bg-linearlr p-2  "
                         variant="outlined"
                         onClick={() => {
                           setIdea(false);
@@ -285,15 +294,15 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                           setAddquery(false);
                         }}
                       >
-                        Your Query
+                        <span className="white">Your Query</span>
                       </Button>
 
                       <Button
                         style={{
                           borderRadius: "4px",
-                          boxShadow: "0px 5px 10px #0000005e",
+                          // boxShadow: "0px 5px 10px #0000005e",
                         }}
-                        className=" btn bg-linearlr p-1"
+                        className=" btn bg-linearlr p-2"
                         variant="outlined"
                         onClick={() => {
                           // setOpen(true)
@@ -301,7 +310,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                           setYourquery(false);
                         }}
                       >
-                        + Add Query
+                        <span className="white"> + Add Query</span>
                       </Button>
                     </div>
                   </div>
@@ -309,7 +318,10 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                   {yourquery ? (
                     <YourQueries setIdea={setIdea} />
                   ) : addquery ? (
-                    <AddQueries  setAddquery={setAddquery} setYourquery={setYourquery}/>
+                    <AddQueries
+                      setAddquery={setAddquery}
+                      setYourquery={setYourquery}
+                    />
                   ) : (
                     <QueryMaker
                       menu={menu}

@@ -173,7 +173,7 @@ export default function IdeaCrate({ setOpen, setPost,setComment,
                     // alt={logUser.username}
                     // src={logUser.profile_pic.public_url}
                     style={{
-                      boxShadow: "0px 5px 10px black",
+                      // boxShadow: "0px 5px 10px black",
                       transform: "scale(1.2)",
                       width: 50,
                       height: 50,
@@ -296,7 +296,7 @@ export default function IdeaCrate({ setOpen, setPost,setComment,
               </div>{" "} */}
               {post ? (
                 <>
-                  <div>
+                  <div >
                     <CommentForm
                       submitLabel="Post"
                       handleSubmit={addComment}
