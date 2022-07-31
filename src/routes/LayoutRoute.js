@@ -22,7 +22,7 @@ export default function LayoutRoute({
   // const [isOpen, setIsOpen] = useState(false);
   // console.log(token);
   // !token && history.push("/");
-  const [logUser, setLogUser] = useState(null);
+  const [logUser, setLogUser] = useState(true);
   const [results, setResults] = useState(false);
   const [welcome, setWelcome] = useState(true);
   const [redirect, setRedirect] = useState(false);

@@ -2,9 +2,10 @@ import { useSelector } from "react-redux";
 import { endpoint, token, config } from "../../endpoint";
 import axios from "axios";
 import Avatar from "@mui/material/Avatar";
+import QueryIdea from "./QueryIdea";
 
 
-export default function YourQueries({setIdea,setYourquery,setAddquery}) {
+export default function YourQueries({setIdea,setYourquery,setAddquery,queryIdea,setQueryIdea}) {
   const userQuery = useSelector((state) => state.ideaCreate);
   axios.get(`${endpoint}/question/61b8058c79c371bf4d7fe36c`, config);
 
@@ -55,12 +56,24 @@ export default function YourQueries({setIdea,setYourquery,setAddquery}) {
                   {/* queries */}
 
                   <div 
-                  onClick={() => setIdea(true)}
+                  onClick={() => {setQueryIdea(true)
+                  setYourquery(false)}}
                   className="bg-white  p-4 rounded-3 w-100">
                     <p className="text-dark mb-0">{val.query}</p>
-                  </div>
-                </div>
 
+                  </div>
+                 
+                  <div className="divide"></div>
+                  {/* {queryIdea ? (
+                    <QueryIdea/>
+                  ):(
+                    <YourQueries />
+                  )} */}
+                    {}
+{/* <div className="rounded-4  d-flex flex-column justify-content-evenly p-4 vh-90 w-100"> */}
+                    
+
+                </div>
             </div>
             {/* <div key={index} className="bg-white mx-2 mt-3 p-3 rounded-3 w-100">
 

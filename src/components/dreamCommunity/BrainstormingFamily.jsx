@@ -13,6 +13,7 @@ import AddQueries from "./AddQueries";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import IdeaCrate from "../dreamCommunity/IdeaCrate";
 import { Divider } from "@mui/material";
+import QueryIdea from "./QueryIdea"
 
 const theme = createTheme({
   palette: {
@@ -32,6 +33,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
   const [post, setPost] = useState(false);
   const [passdata, setPassdata] = useState(null);
   const [content, setContent] = useState(null);
+  const [queryIdea,setQueryIdea] = useState(false);
 
   const data = [
     {
@@ -242,6 +244,8 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                         setPost(true);
                         setOpen(true);
                         setComment(false);
+                        setQueryIdea(false);
+
                       }}
                     >
                       <span className="white"> + Add ideas</span>
@@ -291,6 +295,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                         onClick={() => {
                           setIdea(false);
                           setYourquery(true);
+                          setQueryIdea(false);
                           setAddquery(false);
                         }}
                       >
@@ -307,6 +312,8 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                         onClick={() => {
                           // setOpen(true)
                           setAddquery(true);
+                          setQueryIdea(false);
+
                           setYourquery(false);
                         }}
                       >
@@ -316,13 +323,26 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                   </div>
 
                   {yourquery ? (
-                    <YourQueries setIdea={setIdea} />
+                    <YourQueries setIdea={setIdea} 
+                    queryIdea={queryIdea}
+                    setQueryIdea={setQueryIdea}
+                    setYourquery={setYourquery}/>
+
                   ) : addquery ? (
                     <AddQueries
                       setAddquery={setAddquery}
                       setYourquery={setYourquery}
                     />
-                  ) : (
+                  ) : queryIdea ?(<QueryIdea
+                    data={data}
+                    setPost={setPost}
+                    passdata={passdata}
+                    content={content}
+                    QueryIdea={QueryIdea}
+                    
+                    // setPost={setPost}
+                    setComment={setComment}
+                    post={post}/>):(
                     <QueryMaker
                       menu={menu}
                       data={data}
