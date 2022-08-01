@@ -14,6 +14,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import IdeaCrate from "../dreamCommunity/IdeaCrate";
 import { Divider } from "@mui/material";
 import QueryIdea from "./QueryIdea"
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const theme = createTheme({
   palette: {
@@ -136,11 +137,11 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
 
       <ThemeProvider theme={theme}>
         {/* Full container */}
-        <div className="container my-4 ">
+        <div className="  ">
           {/* upper half */}
-          <div className="d-flex  justify-content-between   py-3">
+          <div className=" d-md-flex   flex-md-row  d-flex  justify-content-md-between col-sm-12    align-items-md-start align-items-center  flex-column  ">
             {/* Zd menu  */}
-            <div className="  d-flex px-2 justify-content-between col-7 ">
+            <div className="  d-flex px-2 justify-content-between col-12 col-md-8  px-0 px-sm-1 px-md-2 m-0   ">
               <span className="fw-bold purple-gradient  fs-3">
                 Select Your ZD Menu
               </span>
@@ -166,7 +167,6 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                   </MenuItem>
                   <Divider color="bg-purple" />
                   <MenuItem value={30}>
-                 
                     <span>Education</span>
                   </MenuItem>
                 </Select>
@@ -174,7 +174,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
             </div>
 
             {/* button */}
-            <div className="rounded-3  mx-3 px-5 col-4 py-4 d-flex gap-4 flex-column bg-hash">
+            <div className="rounded-3 m-5  col-7 p-3    m-md-0  px-md-5 col-md-4 py-md-4 d-flex gap-4 flex-column  bg-hash">
               <Button
                 style={{
                   borderRadius: "4px",
@@ -214,10 +214,12 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
           <>
             {idea ? (
               <div className="d-flex flex-column ">
-                <div className="px-2">   <span className="fw-bold purple-gradient fs-4">
-                  Idea Section
-                </span></div>
-             
+                <div className="px-2">
+                  {" "}
+                  <span className="fw-bold purple-gradient fs-4">
+                    Idea Section
+                  </span>
+                </div>
 
                 {/* description + button*/}
                 <div className="d-flex  justify-content-between">
@@ -245,7 +247,6 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                         setOpen(true);
                         setComment(false);
                         setQueryIdea(false);
-
                       }}
                     >
                       <span className="white"> + Add ideas</span>
@@ -266,10 +267,12 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
             ) : (
               <>
                 <div className="d-flex flex-column">
-                  <div className="px-2"> <span className="fw-bold purple-gradient fs-4">
-                    Query Section
-                  </span></div>
-                 
+                  <div className="px-2">
+                    {" "}
+                    <span className="fw-bold purple-gradient fs-4">
+                      Query Section
+                    </span>
+                  </div>
 
                   {/* description + button*/}
                   <div className="d-flex  justify-content-between  ">
@@ -322,27 +325,32 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                     </div>
                   </div>
 
-                  {yourquery ? (
-                    <YourQueries setIdea={setIdea} 
-                    queryIdea={queryIdea}
-                    setQueryIdea={setQueryIdea}
-                    setYourquery={setYourquery}/>
+                  
 
+                  {yourquery ? (
+                    <YourQueries
+                      setIdea={setIdea}
+                      queryIdea={queryIdea}
+                      setQueryIdea={setQueryIdea}
+                      setYourquery={setYourquery}
+                    />
                   ) : addquery ? (
                     <AddQueries
                       setAddquery={setAddquery}
                       setYourquery={setYourquery}
                     />
-                  ) : queryIdea ?(<QueryIdea
-                    data={data}
-                    setPost={setPost}
-                    passdata={passdata}
-                    content={content}
-                    QueryIdea={QueryIdea}
-                    
-                    // setPost={setPost}
-                    setComment={setComment}
-                    post={post}/>):(
+                  ) : queryIdea ? (
+                    <QueryIdea
+                      data={data}
+                      setPost={setPost}
+                      passdata={passdata}
+                      content={content}
+                      QueryIdea={QueryIdea}
+                      // setPost={setPost}
+                      setComment={setComment}
+                      post={post}
+                    />
+                  ) : (
                     <QueryMaker
                       menu={menu}
                       data={data}
@@ -351,6 +359,10 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                       setIdea={setIdea}
                     />
                   )}
+
+
+
+
                 </div>
               </>
             )}

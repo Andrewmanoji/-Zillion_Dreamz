@@ -66,7 +66,7 @@ const Comment = ({
             }}
           />
         )}
-        <div className="comment-actions d-flex jus">
+        <div className="comment-actions d-flex justify-content-end">
           {canReply && (
             <div
               className="comment-action text-white"
