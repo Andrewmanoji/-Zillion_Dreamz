@@ -63,7 +63,7 @@ export default function YourQueries({setIdea,setYourquery,setAddquery,queryIdea,
 
                   </div>
                  
-                  <div className="divide"></div>
+                  {/* <div className="divide"></div> */}
                   {/* {queryIdea ? (
                     <QueryIdea/>
                   ):(
