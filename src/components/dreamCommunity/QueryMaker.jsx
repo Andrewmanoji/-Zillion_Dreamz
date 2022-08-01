@@ -75,7 +75,7 @@ export default function QueryMaker({
 
   return (
     <>
-      <div className="rounded-4 bg-purple d-flex flex-column justify-content-evenly p-4 vh-70  w-md-100  ">
+      <div className="rounded-4 bg-purple d-flex flex-column justify-content-evenly p-4 vh-70        w-md-100  ">
         {data &&
           data.map((dt, index) => {
             if (dt.type == menu || menu == 10) {
@@ -102,7 +102,7 @@ export default function QueryMaker({
                           />
                         </div>
 
-                        <div className="d-flex flex-column ms-md-4 col-md-10  ms-lg-2  ms-5       col-lg-11  col-9 ms-4  p-0 pl-0">
+                        <div className="d-flex flex-column ms-sm-4 col-sm-10  ms-lg-2  ms-4      col-lg-11  col-10 ms-4    ms-xs-4  p-0 pl-0">
                           {/* </StyledBadge> */}
                           <div className="d-flex flex-sm-row mt-0   ms-0  pe-sm-2 mb-sm-3   ">
                             <div

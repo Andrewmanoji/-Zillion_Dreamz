@@ -179,13 +179,13 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
             </div>
 
             {/* button */}
-            <div className="rounded-3 m-5  col-7 p-3         m-md-0  px-md-5 col-md-4 py-md-4 d-flex gap-4 flex-column  bg-hash">
+            <div className="rounded-3 m-5  col-7 p-3   m-md-0  px-md-5 col-md-4 py-md-4 d-flex gap-4 flex-column  bg-hash">
               <Button
                 style={{
                   borderRadius: "4px",
                   // boxShadow: "0px 5px 10px #0000005e",
                 }}
-                className="fw-bold bg-linearlr p-2 "
+                className="fw-bold bg-linearlr p-2   "
                 variant="outlined"
                 onClick={() => {
                   setIdea(false);
@@ -303,7 +303,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                           borderRadius: "4px",
                           // boxShadow: "0px 5px 10px #0000005e",
                         }}
-                        className="  bg-linearlr p-2  "
+                        className="  bg-linearlr  p-md-2    "
                         variant="outlined"
                         onClick={() => {
                           setIdea(false);

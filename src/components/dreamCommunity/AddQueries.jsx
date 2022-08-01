@@ -66,8 +66,6 @@ export default function AddQueries({ setOpen,setAddquery,setYourquery }) {
         <div>
           <>
             <div className="rounded-4 d-flex flex-column justify-content-evenly p-4 vh-70 w-100">
-          
-
               {/* <Dialog
           open={addopen}
           onClose={handleClose}
@@ -108,14 +106,12 @@ export default function AddQueries({ setOpen,setAddquery,setYourquery }) {
       </Dialog> */}
           </>
 
-    
-
-          <div className="rounded-4  d-flex flex-column justify-content-evenly p-4 vh-70 w-100">
+          <div className="rounded-4  d-flex flex-column justify-content-evenly p-4 pt-2 vh-70  ">
             {/* {data &&
               data.map((data, index) => ( */}
             <div className="d-flex  mb-2   align-items-start">
               {/* user name */}
-              <div className=" p-2 ps-1  pb-1 mb-sm-0 pb-sm-0  col-1     ">
+              <div className=" p-2 ps-1  pb-1 mb-sm-0 pb-sm-0  col-sm-1   col-1 me-sm-0 me-2      ">
                 <Avatar
                   className="bg-linear  "
                   // alt={logUser.username}
@@ -129,7 +125,7 @@ export default function AddQueries({ setOpen,setAddquery,setYourquery }) {
                 />
               </div>
 
-              <div className="d-flex flex-column  col-11 p-0 pl-0">
+              <div className="d-flex flex-column ms-md-3  ms-4  ms-lg-1 col-10  bg-dark col-md-11 p-0 pl-0">
                 {/* </StyledBadge> */}
                 <div className="d-flex flex-sm-row mt-0  ms-0 pe-1 pe-sm-2 mb-sm-3   ">
                   <div
@@ -147,7 +143,7 @@ export default function AddQueries({ setOpen,setAddquery,setYourquery }) {
                 </div>
                 {/* queries */}
 
-                <div className="form-floating m-3 w-100 ">
+                <div className="form-floating            w-100 ">
                   <input
                     type="text"
                     className="form-control curve no-out"
@@ -157,7 +153,7 @@ export default function AddQueries({ setOpen,setAddquery,setYourquery }) {
                     }
                   />
                   <label className="text-dark" for="floatingInput">
-                   Your Queries
+                    Your Queries
                   </label>
                 </div>
                 <div className="align-items-right justify-content-end mx-5 mt-md-3">
@@ -165,7 +161,9 @@ export default function AddQueries({ setOpen,setAddquery,setYourquery }) {
                     <Button
                       className="bg-white purple mx-1 mb-3 my-2"
                       variant="contained"
-                      onClick={() => {setAddquery(false)}}
+                      onClick={() => {
+                        setAddquery(false);
+                      }}
                     >
                       Cancel
                     </Button>
