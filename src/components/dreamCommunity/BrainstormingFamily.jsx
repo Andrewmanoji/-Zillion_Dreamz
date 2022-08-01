@@ -15,6 +15,7 @@ import IdeaCrate from "../dreamCommunity/IdeaCrate";
 import { Divider } from "@mui/material";
 import QueryIdea from "./QueryIdea"
 import InfiniteScroll from "react-infinite-scroll-component";
+import { max } from "date-fns";
 
 const theme = createTheme({
   palette: {
@@ -139,42 +140,46 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
         {/* Full container */}
         <div className="  ">
           {/* upper half */}
-          <div className=" d-md-flex   flex-md-row  d-flex  justify-content-md-between col-sm-12    align-items-md-start align-items-center  flex-column  ">
+          <div className=" d-md-flex  flex-md-row  d-flex  justify-content-md-between col-sm-12    align-items-md-start align-items-center  flex-column  ">
             {/* Zd menu  */}
-            <div className="  d-flex px-2 justify-content-between col-12 col-md-8  px-0 px-sm-1 px-md-2 m-0   ">
+            <div className="  d-flex px-2 justify-content-sm-between   flex-column flex-sm-row   col-12    col-md-8 px-sm-1 px-md-2 m-0   ">
               <span className="fw-bold purple-gradient  fs-3">
                 Select Your ZD Menu
               </span>
 
-              <FormControl variant="outlined" sx={{ minWidth: 220 }}>
-                <Select
-                  style={{
-                    borderRadius: "7px",
-                  }}
-                  // labelId="demo-simple-select-filled-label"
-                  // id="demo-simple-select-filled"
-                  className=" bg-linearlr bg- "
-                  value={menu}
-                  label="menu"
-                  onChange={handleChange}
-                >
-                  <MenuItem value={10}>
-                    <span>General</span>
-                  </MenuItem>
-                  <Divider color="bg-purple" />
-                  <MenuItem value={20}>
-                    <span>Business</span>
-                  </MenuItem>
-                  <Divider color="bg-purple" />
-                  <MenuItem value={30}>
-                    <span>Education</span>
-                  </MenuItem>
-                </Select>
-              </FormControl>
+              <div className="me-5  ms-sm-5  d-flex justify-content-center mt-3  mt-sm-0 col-12 col-sm-4 ">
+                {" "}
+                <FormControl variant="outlined" sx={{ minWidth: 200 }    }    >
+                  <Select
+                    style={{
+                      borderRadius: "7px",
+                    }}
+                    // labelId="demo-simple-select-filled-label"
+                    // id="demo-simple-select-filled"
+                    className=" bg-linearlr "
+                    value={menu}
+                    label="menu"
+                    onChange={handleChange}
+                  >
+                    <MenuItem value={10}>
+                      <span>General</span> 
+                    </MenuItem>
+                  
+                    <Divider color="bg-purple" />
+                    <MenuItem value={20}>
+                      <span>Business</span>
+                    </MenuItem>
+                    <Divider color="bg-purple" />
+                    <MenuItem value={30}>
+                      <span>Education</span>
+                    </MenuItem>
+                  </Select>
+                </FormControl>
+              </div>
             </div>
 
             {/* button */}
-            <div className="rounded-3 m-5  col-7 p-3    m-md-0  px-md-5 col-md-4 py-md-4 d-flex gap-4 flex-column  bg-hash">
+            <div className="rounded-3 m-5  col-7 p-3         m-md-0  px-md-5 col-md-4 py-md-4 d-flex gap-4 flex-column  bg-hash">
               <Button
                 style={{
                   borderRadius: "4px",
@@ -187,6 +192,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                   setAddquery(false);
                   setYourquery(false);
                   setPost(false);
+                  setQueryIdea(false);
                 }}
               >
                 <span className="white"> Query Maker</span>
@@ -200,8 +206,12 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                 className="fw-bold bg-linearlr  p-2 "
                 variant="outlined"
                 onClick={() => {
-                  // setPost(false);
-                  // setIdea(true);
+                  setIdea(true);
+                  setAddquery(false);
+                    setComment(true);
+                  setYourquery(false);
+                  setPost(false);
+                  setQueryIdea(false); 
                 }}
               >
                 <span className="white"> Idea Crate</span>
@@ -325,8 +335,6 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                     </div>
                   </div>
 
-                  
-
                   {yourquery ? (
                     <YourQueries
                       setIdea={setIdea}
@@ -359,10 +367,6 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                       setIdea={setIdea}
                     />
                   )}
-
-
-
-
                 </div>
               </>
             )}

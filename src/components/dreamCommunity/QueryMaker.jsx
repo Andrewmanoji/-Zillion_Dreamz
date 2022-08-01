@@ -88,7 +88,7 @@ export default function QueryMaker({
                         key={index}
                       >
                         {/* user name */}
-                        <div className=" p-2 ps-1  pb-1 mb-sm-0 pb-sm-0  col-1     ">
+                        <div className=" p-2 ps-1   pb-1 mb-sm-0 pb-sm-0  col-1     ">
                           <Avatar
                             className="bg-linear  "
                             // alt={logUser.username}
@@ -102,15 +102,15 @@ export default function QueryMaker({
                           />
                         </div>
 
-                        <div className="d-flex flex-column ms-md-4 col-md-10  ms-lg-2  bg-dark col-lg-11    col-10 ms-4  p-0 pl-0">
+                        <div className="d-flex flex-column ms-md-4 col-md-10  ms-lg-2  ms-5       col-lg-11  col-9 ms-4  p-0 pl-0">
                           {/* </StyledBadge> */}
-                          <div className="d-flex flex-sm-row mt-0    ms-0 pe-1 pe-sm-2 mb-sm-3   ">
+                          <div className="d-flex flex-sm-row mt-0   ms-0  pe-sm-2 mb-sm-3   ">
                             <div
-                              className="fw-bold pe-sm-2 px-lg-2     d-flex "
+                              className="fw-bold pe-sm-2     d-flex "
                               style={{ fontSize: 18 }}
                             >
                               <span
-                                className="fw-bold pe-sm-2 p-1 "
+                                className="fw-bold pe-sm-2 p-1   "
                                 style={{ fontSize: 18 }}
                               >
                                 {cont.uname}
