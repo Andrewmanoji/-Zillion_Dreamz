@@ -184,10 +184,15 @@ a {
 
 
 }
-@media (min-width: 991px) {
+@media (max-width: 991px) {
   .w-lg-25 {
     width: 25% !important;
   }
+  .query-maker-btn{
+    font-size: 10px;
+   
+  }  
+  
 }
 
 .bg-linear {
