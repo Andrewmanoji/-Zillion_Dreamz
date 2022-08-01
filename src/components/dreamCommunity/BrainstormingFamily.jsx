@@ -149,7 +149,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
 
               <div className="me-5  ms-sm-5  d-flex justify-content-center mt-3  mt-sm-0 col-12 col-sm-4 ">
                 {" "}
-                <FormControl variant="outlined" sx={{ minWidth: 200 }    }    >
+                <FormControl variant="outlined" sx={{ minWidth: 200 }}>
                   <Select
                     style={{
                       borderRadius: "7px",
@@ -162,9 +162,9 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                     onChange={handleChange}
                   >
                     <MenuItem value={10}>
-                      <span>General</span> 
+                      <span>General</span>
                     </MenuItem>
-                  
+
                     <Divider color="bg-purple" />
                     <MenuItem value={20}>
                       <span>Business</span>
@@ -179,7 +179,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
             </div>
 
             {/* button */}
-            <div className="rounded-3 m-5  col-7 p-3   m-md-0  px-md-5 col-md-4 py-md-4 d-flex gap-4 flex-column  bg-hash">
+            <div className="rounded-3 m-5  col-7 p-3      m-md-0  px-md-5 col-md-4 py-md-4 d-flex gap-4 flex-column  bg-hash">
               <Button
                 style={{
                   borderRadius: "4px",
@@ -195,7 +195,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                   setQueryIdea(false);
                 }}
               >
-                <span className="white"> Query Maker</span>
+                <span className="query-maker-btn white"> Query Maker</span>
               </Button>
 
               <Button
@@ -208,13 +208,13 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                 onClick={() => {
                   setIdea(true);
                   setAddquery(false);
-                    setComment(true);
+                  setComment(true);
                   setYourquery(false);
                   setPost(false);
-                  setQueryIdea(false); 
+                  setQueryIdea(false);
                 }}
               >
-                <span className="white"> Idea Crate</span>
+                <span className="query-maker-btn white"> Idea Crate</span>
               </Button>
             </div>
           </div>
@@ -226,7 +226,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
               <div className="d-flex flex-column ">
                 <div className="px-2">
                   {" "}
-                  <span className="fw-bold purple-gradient fs-4">
+                  <span className="fw-bold purple-gradient fs-4 ">
                     Idea Section
                   </span>
                 </div>

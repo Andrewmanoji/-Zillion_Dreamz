@@ -1,5 +1,9 @@
+import React,{ useState} from 'react';
 import CommentForm from "./CommentForm";
 import Avatar from "@mui/material/Avatar";
+import DeleteIcon from "@mui/icons-material/Delete";
+import KeyboardReturnIcon from "@mui/icons-material/KeyboardReturn";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 
 const Comment = ({
   comment,
@@ -28,6 +32,8 @@ const Comment = ({
   const canEdit = currentUserId === comment.userId && !timePassed;
   const replyId = parentId ? parentId : comment.id;
   const createdAt = new Date(comment.createdAt).toLocaleDateString();
+  const [vote, setVote] = useState(null);
+
   return (
     <div key={comment.id} className="comment">
       <div className="comment-image-container">
@@ -74,9 +80,19 @@ const Comment = ({
                 setActiveComment({ id: comment.id, type: "replying" })
               }
             >
-              Reply
+              <KeyboardReturnIcon
+                className="cursor-pointer mb-3 mb-sm-2 white pb-1"
+                style={{
+                  fontSize: "27px",
+                  filter: " drop-shadow(0px 0px 5px #0000005e)",
+                }}
+              />
             </div>
           )}
+
+          {/* 
+          -----------------This code is for update comment in idea section---------------------
+          
           {canEdit && (
             <div
               className="comment-action text-white"
@@ -84,15 +100,50 @@ const Comment = ({
                 setActiveComment({ id: comment.id, type: "editing" })
               }
             >
-             Voting
+              <ThumbUpIcon
+                className="cursor-pointer mb-3 mb-sm-2 white pb-1"
+                style={{
+                  fontSize: "23px",
+                  filter: " drop-shadow(0px 0px 5px #0000005e)",
+                }}
+              />
             </div>
-          )}
+          )} */}
+
+
+          <div
+            className="comment-action text-white"
+            onClick={() => setVote(vote + 1)}
+          >
+            <ThumbUpIcon
+              className="cursor-pointer mb-3 mb-sm-2 white pb-1"
+              style={{
+                fontSize: "23px",
+                filter: " drop-shadow(0px 0px 5px #0000005e)",
+              }}
+            />
+            <p
+              className="text-center"
+              style={{
+                fontSize: "10px",
+                filter: " drop-shadow(0px 0px 5px #0000005e)",
+              }}
+            >
+              {vote}
+            </p>
+          </div>
           {canDelete && (
             <div
               className="comment-action text-white"
               onClick={() => deleteComment(comment.id)}
             >
-              Delete
+              <DeleteIcon
+                className="cursor-pointer mb-3 mb-sm-2 white pb-1"
+                style={{
+                  fontSize: "25px",
+                  filter: " drop-shadow(0px 0px 5px #0000005e)",
+                }}
+              />
             </div>
           )}
         </div>
