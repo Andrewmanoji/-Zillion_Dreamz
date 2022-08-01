@@ -63,9 +63,8 @@ const Comments = ({ commentsUrl, currentUserId,setPost }) => {
     <div className="comments">
       {/* <h3 className="comments-title">Comments</h3>
       <div className="comment-form-title">Write comment</div> */}
-      <CommentForm submitLabel="Post" handleSubmit={addComment}  />
+      {/* <CommentForm submitLabel="Post" handleSubmit={addComment}  /> */}
       
-
       <div>
         {rootComments.map((rootComment) => (
           <Comment
