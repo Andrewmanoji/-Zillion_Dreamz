@@ -208,7 +208,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                 onClick={() => {
                   setIdea(true);
                   setAddquery(false);
-                  setComment(true);
+
                   setYourquery(false);
                   setPost(false);
                   setQueryIdea(false);
@@ -235,7 +235,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                 <div className="d-flex  justify-content-between">
                   {/* description */}
                   <div className="pt-2 px-2 d-flex  flex-column">
-                    <span className="fw-bold purple-gradient fs-6">
+                    <span className="fw-bold purple-gradient fs-sm-6     ">
                       Choose your query to shower your ideas. Post if you have
                     </span>
                     <span className="fw-bold purple-gradient fs-6">
