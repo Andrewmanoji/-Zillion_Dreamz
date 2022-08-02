@@ -285,7 +285,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                   </div>
 
                   {/* description + button*/}
-                  <div className="d-flex  justify-content-between  ">
+                  <div className="d-flex  justify-content-between query-btn ">
                     {/* description */}
                     <div className="pt-2 px-2 d-flex flex-column">
                       <span className="fw-bold purple-gradient fs-6">
@@ -297,7 +297,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                     </div>
 
                     {/* query button */}
-                    <div className="rounded-3 m-2  py-3 col-4 d-flex me-5  ms-sm-5  justify-content-center gap-4 ">
+                    <div className="rounded-3 m-2  py-3 col-4 d-flex me-5  ms-sm-5  justify-content-center gap-4 query-button">
                       <Button
                         style={{
                           borderRadius: "4px",
@@ -312,7 +312,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                           setAddquery(false);
                         }}
                       >
-                        <span className="white">Your Query</span>
+                        <span className="white query-btn-sd">Your Query</span>
                       </Button>
 
                       <Button
@@ -330,7 +330,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                           setYourquery(false);
                         }}
                       >
-                        <span className="white"> + Add Query</span>
+                        <span className="white query-btn-sd"> + Add Query</span>
                       </Button>
                     </div>
                   </div>
