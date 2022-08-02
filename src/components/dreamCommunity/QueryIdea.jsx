@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import Avatar from "@mui/material/Avatar";
 import Comment from "./IdeaComments/comment";
 import CommentForm from "./IdeaComments/CommentForm";
@@ -30,14 +30,17 @@ export default function queryidea() {
             />
           </div>
 
-          <div className="d-flex flex-column  col-11 p-0 pl-0">
+          <div className="d-flex flex-column ms-md-4 col-md-10  ms-lg-2  ms-5       col-lg-11  col-9 ms-4  p-0 pl-0">
             {/* </StyledBadge> */}
-            <div className="d-flex flex-sm-row mt-0  ms-0 pe-1 pe-sm-2 mb-sm-3   ">
+            <div className="d-flex flex-sm-row mt-0   ms-0  pe-sm-2 mb-sm-3   ">
               <div
                 className="fw-bold pe-sm-2  d-flex "
                 style={{ fontSize: 18 }}
               >
-                <span className="fw-bold pe-sm-2 p-1 " style={{ fontSize: 18 }}>
+                <span
+                  className="fw-bold pe-sm-2  ms-1 pe-0 pe-sm-0 mb-sm-7 mt-0"
+                  style={{ fontSize: 18 }}
+                >
                   username
                 </span>
                 {/* {logUser.username} */}
@@ -55,7 +58,7 @@ export default function queryidea() {
               <p className="text-dark mb-0">hii</p>
               {/* {val.query}  pass value to this div */}
             </div>
-            
+
             <Comments
               commentsUrl="http://localhost:3004/comments"
               currentUserId="1"

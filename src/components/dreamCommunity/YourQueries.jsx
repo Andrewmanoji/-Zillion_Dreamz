@@ -45,7 +45,7 @@ export default function YourQueries({setIdea,setYourquery,setAddquery,queryIdea,
                       style={{ fontSize: 18 }}
                     >
                       <span
-                        className="fw-bold pe-sm-2  ms-1 pe-0 pe-sm-0 mb-sm-7 mt-0 bg-dark  "
+                        className="fw-bold pe-sm-2  ms-1 pe-0 pe-sm-0 mb-sm-7 mt-0   "
                         style={{ fontSize: 18 }}
                       >
                         username

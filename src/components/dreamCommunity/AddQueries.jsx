@@ -62,10 +62,10 @@ export default function AddQueries({ setOpen,setAddquery,setYourquery }) {
   }
   return (
     <>
-      <div className="rounded-4 bg-purple vh-70  w-100 position-relative pt-1">
+      {/* <div className="rounded-4 bg-purple vh-70  w-100 position-relative pt-1  "> */}
         <div>
           <>
-            <div className="rounded-4 d-flex flex-column justify-content-evenly p-4 vh-70 w-100">
+            {/* <div className="rounded-4 d-flex flex-column justify-content-evenly p-4 vh-70 w-100 bg-dark"> */}
               {/* <Dialog
           open={addopen}
           onClose={handleClose}
@@ -90,7 +90,7 @@ export default function AddQueries({ setOpen,setAddquery,setYourquery }) {
             </IconButton>
           </PurpleTooltip>
         </div> */}
-            </div>
+            {/* </div> */}
 
             {/* <Dialog
         open={open}
@@ -106,12 +106,12 @@ export default function AddQueries({ setOpen,setAddquery,setYourquery }) {
       </Dialog> */}
           </>
 
-          <div className="rounded-4  d-flex flex-column justify-content-evenly p-4 pt-2 vh-70  ">
+          <div className="rounded-4  d-flex flex-column justify-content-evenly p-4 pt-2 vh-70 bg-purple ">
             {/* {data &&
               data.map((data, index) => ( */}
             <div className="d-flex  mb-2   align-items-start">
               {/* user name */}
-              <div className=" p-2 ps-1  pb-1 mb-sm-0 pb-sm-0  col-sm-1   col-1 me-sm-0 me-2      ">
+              <div className="ps-1 mb-3 pb-1 mb-sm-0 pb-sm-0 col-1    ">
                 <Avatar
                   className="bg-linear  "
                   // alt={logUser.username}
@@ -125,9 +125,9 @@ export default function AddQueries({ setOpen,setAddquery,setYourquery }) {
                 />
               </div>
 
-              <div className="d-flex flex-column ms-md-3  ms-4  ms-lg-1 col-10   col-md-11 p-0 pl-0">
+              <div className="d-flex flex-column ms-sm-7 col-sm-10  ms-lg-2     col-lg-11  col-10 ms-4   p-0 pl-0">
                 {/* </StyledBadge> */}
-                <div className="d-flex flex-sm-row mt-0   ms-0  pe-sm-2 mb-sm-3 ">
+                <div className="d-flex flex-sm-row mt-0   ms-0  pe-sm-2 mb-sm-3  ">
                   <div
                     className="fw-bold pe-sm-2  d-flex "
                     style={{ fontSize: 18 }}
@@ -221,7 +221,7 @@ export default function AddQueries({ setOpen,setAddquery,setYourquery }) {
         </div> */}
           </div>
         </div>
-      </div>
+      
     </>
   );
 }
