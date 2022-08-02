@@ -125,9 +125,9 @@ export default function AddQueries({ setOpen,setAddquery,setYourquery }) {
                 />
               </div>
 
-              <div className="d-flex flex-column ms-md-3  ms-4  ms-lg-1 col-10  bg-dark col-md-11 p-0 pl-0">
+              <div className="d-flex flex-column ms-md-3  ms-4  ms-lg-1 col-10   col-md-11 p-0 pl-0">
                 {/* </StyledBadge> */}
-                <div className="d-flex flex-sm-row mt-0  ms-0 pe-1 pe-sm-2 mb-sm-3   ">
+                <div className="d-flex flex-sm-row mt-0   ms-0  pe-sm-2 mb-sm-3 ">
                   <div
                     className="fw-bold pe-sm-2  d-flex "
                     style={{ fontSize: 18 }}

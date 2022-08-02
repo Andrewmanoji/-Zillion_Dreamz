@@ -167,7 +167,7 @@ export default function IdeaCrate({ setOpen, setPost,setComment,
             <div className="rounded-4 d-flex flex-column justify-content-evenly p-4 vh-70 w-100">
               <div className="d-flex  mb-2   align-items-start">
                 {/* user name */}
-                <div className=" p-2 ps-1  pb-1 mb-sm-0 pb-sm-0  col-1     ">
+                <div className="  ps-1 mb-3 pb-1 mb-sm-0 pb-sm-0 col-1     ">
                   <Avatar
                     className="bg-linear  "
                     // alt={logUser.username}
@@ -181,15 +181,15 @@ export default function IdeaCrate({ setOpen, setPost,setComment,
                   />
                 </div>
 
-                <div className="d-flex flex-column  col-11 p-0 pl-0">
+                <div className="d-flex flex-column ms-md-4 col-md-10  ms-lg-2  ms-5       col-lg-11  col-9 ms-4  p-0 pl-0">
                   {/* </StyledBadge> */}
-                  <div className="d-flex flex-sm-row mt-0  ms-0 pe-1 pe-sm-2 mb-sm-3   ">
+                  <div className="d-flex flex-sm-row mt-0   ms-0  pe-sm-2 mb-sm-3    ">
                     <div
                       className="fw-bold pe-sm-2  d-flex "
                       style={{ fontSize: 18 }}
                     >
                       <span
-                        className="fw-bold pe-sm-2 p-1 "
+                        className="fw-bold pe-sm-2  ms-1 pe-0 pe-sm-0 mb-sm-7 mt-0  "
                         style={{ fontSize: 18 }}
                       >
                         {passedData.uname}
