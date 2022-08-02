@@ -195,6 +195,44 @@ a {
   
 }
 
+@media (max-width: 376px){
+  .query-btn{
+    display: flex;
+    flex-direction: column;
+    /* background-color:black; */
+  }
+
+  .query-button{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+  }
+  .query-btn-sd{
+    font-size:10px;
+    font-weight:bold;
+  }
+}
+
+@media (max-width: 480px){
+  .query-btn{
+    display: flex;
+    flex-direction: column;
+    /* background-color:black; */
+  }
+
+  .query-button{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+  }
+  .query-btn-sd{
+    font-size:12px;
+    /* font-weight:bold; */
+  }
+}
+
 .bg-linear {
   background-image: linear-gradient(to top, #a11cf9, #7201c8);
   color: white !important;
