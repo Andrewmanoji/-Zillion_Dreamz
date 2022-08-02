@@ -297,7 +297,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                     </div>
 
                     {/* query button */}
-                    <div className="rounded-3 m-2  py-3 col-4 d-flex me-5  ms-sm-5  justify-content-center gap-4 mt-sm-0 col-12 col-sm-4 ">
+                    <div className="rounded-3 m-2  py-3 col-4 d-flex me-5  ms-sm-5  justify-content-center gap-4 ">
                       <Button
                         style={{
                           borderRadius: "4px",
