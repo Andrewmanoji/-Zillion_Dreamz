@@ -135,8 +135,8 @@ export default function IdeaCrate({ setOpen, setPost,setComment,
     query: "",
   });
 
-  const passedData = data[passdata].content[content];
-  console.log(passedData);
+  // const passedData = data[passdata].content[content];
+  // console.log(passedData);
 
   function handleSubmit() {
     let noofErrors = 0;
@@ -192,7 +192,7 @@ export default function IdeaCrate({ setOpen, setPost,setComment,
                         className="fw-bold pe-sm-2  ms-1 pe-0 pe-sm-0 mb-sm-7 mt-0  "
                         style={{ fontSize: 18 }}
                       >
-                        {passedData.uname}
+                        {/* {passedData.uname} */}
                       </span>
                       {/* {logUser.username} */}
                     </div>
@@ -200,7 +200,7 @@ export default function IdeaCrate({ setOpen, setPost,setComment,
                   {/* queries */}
 
                   <div className="bg-white  p-4 rounded-3 w-100">
-                    <p className="text-dark mb-0">{passedData.query}</p>
+                    {/* <p className="text-dark mb-0">{passedData.query}</p> */}
                   </div>
                 </div>
 

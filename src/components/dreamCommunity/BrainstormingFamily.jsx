@@ -37,6 +37,10 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
   const [content, setContent] = useState(null);
   const [queryIdea,setQueryIdea] = useState(false);
 
+
+
+
+
   const data = [
     {
       type: 20,
@@ -106,6 +110,11 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
       ],
     },
   ];
+
+
+ 
+
+
 
   const handleChange = (event) => {
     setMenu(event.target.value);
@@ -179,7 +188,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
             </div>
 
             {/* button */}
-            <div className="rounded-3 m-5  col-7 p-3      m-md-0  px-md-5 col-md-4 py-md-4 d-flex gap-4 flex-column  bg-hash">
+            <div className="rounded-3 m-5  col-5 p-3      m-md-0  px-md-5 col-md-4 py-md-4 d-flex gap-4 flex-column  bg-hash">
               <Button
                 style={{
                   borderRadius: "4px",
@@ -259,7 +268,7 @@ export default function BrainstormingFamily({ setBrainstroming, mob }) {
                         setQueryIdea(false);
                       }}
                     >
-                      <span className="white"> + Add ideas</span>
+                      <span className="white  query-btn-sd"> + Add ideas</span>
                     </Button>
                   </div>
                 </div>
