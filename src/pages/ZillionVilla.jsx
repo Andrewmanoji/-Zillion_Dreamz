@@ -5,6 +5,9 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Slider from "@mui/material/Slider";
 import zvillasoon from "../assets/images/zson.gif";
+import { useState } from "react";
+import Button from "@mui/material/Button";
+
 
 const theme = createTheme({
   palette: {
@@ -15,28 +18,104 @@ const theme = createTheme({
 });
 
 export default function ZillionVilla() {
+
+  const [zhonor,setZhonor] = useState(false);
+  const [zchest,setZchest] = useState(false);
+  const [zstoreroom,setZstoreroom] = useState(false);
+  const [zsaga,setZsaga] = useState(false);
+
+
   return (
     // <div>
-    <div
-      className="h-100 bg-white position-absolute z-villa d-flex flex-column align-justify-start mt-md-3"
-      style={{ zIndex: 4 }}
-    >
-      <div className="bg-white text-center col-12">
-        <div
-          className="h4 col-12 col-sm-8 col-md-6 col-xl-4 p-3 fw-bold mx-auto text-white bg-linearlr text-center"
-          style={{
-            borderRadius: "0px 0px 15px 15px",
-            boxShadow: "0px 0px 10px #000000",
-          }}
-        >
-          Launching Soon..
-        </div>
+    // <div
+    //   className="h-100 bg-white position-absolute z-villa d-flex flex-column align-justify-start mt-md-3"
+    //   style={{ zIndex: 4 }}
+    // >
+    //   <div className="bg-white text-center col-12">
+    //     <div
+    //       className="h4 col-12 col-sm-8 col-md-6 col-xl-4 p-3 fw-bold mx-auto text-white bg-linearlr text-center"
+    //       style={{
+    //         borderRadius: "0px 0px 15px 15px",
+    //         boxShadow: "0px 0px 10px #000000",
+    //       }}
+    //     >
+    //       Launching Soon.
+    //     </div>
+    //   </div>
+    //   <img
+    //     src={zvillasoon}
+    //     className=" mx-auto my-md-auto mt-5  pt-5 pt-md-0 launch-gif"
+    //   />
+    //   {/* <div class="bg-black">
+    //       <ul class="text-decoration-none">
+    //         <li>Zillion Honor Board</li>
+    //         <li>Zillion Chest</li>
+    //         <li>Zillion Storeroom</li>
+    //         <li>Zillion Saga</li>
+    //       </ul>
+          
+    //   </div> */}
+  
+    // </div>
+
+      <div>
+        <div class="d-flex justify-content-around mt-5  ZV-btn">
+      <Button
+                style={{
+                  borderRadius: "10px",  
+                  // boxShadow: "0px 5px 10px #0000005e",
+                }}
+                className="fw-bold bg-linearlr p-2  m-4 "
+                variant="outlined"
+              >
+                <span className="query-maker-btn white">Zillion Honor Board </span> 
+              </Button>
+              <Button
+                style={{
+                  borderRadius: "10px",
+                  // boxShadow: "0px 5px 10px #0000005e",
+                }}
+                className="fw-bold bg-linearlr p-2   m-4  "
+                variant="outlined"
+              >
+                <span className="query-maker-btn white"> Zillion Chest</span>
+              </Button>
+              <Button
+                style={{
+                  borderRadius: "10px",
+                  // boxShadow: "0px 5px 10px #0000005e",
+                }}
+                className="fw-bold bg-linearlr p-2   m-4  "
+                variant="outlined"
+              >
+                <span className="query-maker-btn white"> Zillion Storeroom</span>
+              </Button>
+              <Button
+                style={{
+                  borderRadius: "10px",
+                  // boxShadow: "0px 5px 10px #0000005e",
+                }}
+                className="fw-bold bg-linearlr p-2  m-4   "
+                variant="outlined"
+              >
+                <span className="query-maker-btn white"> Zillion Saga</span>
+              </Button>
+              
       </div>
-      <img
-        src={zvillasoon}
-        className=" mx-auto my-md-auto mt-5  pt-5 pt-md-0 launch-gif"
-      />
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col">
+    <div class="card">
+      <div  class="card-img-top" ></div>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
     </div>
+    </div>
+  </div>
+      </div>
+
+
   );
 }
 {
