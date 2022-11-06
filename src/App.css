@@ -53,6 +53,9 @@ html::-webkit-scrollbar {
   font-weight: 500;
   color: #7201c8 !important;
 }
+.purple-bg{
+  background: linear-gradient(to right, #a11cf9, #7201c8) !important;
+}
 .purple-gradient {
   background: linear-gradient(to right, #a11cf9, #7201c8);
   -webkit-text-fill-color: transparent;
@@ -1097,6 +1100,19 @@ width: 100%!important;
   }
 }
 
+.gray-1{
+  background:  #f2f2f2;
+  color:#f2f2f2
+  !important;
+}
+.gray-2{
+  color: #737373 !important;
+
+}
+
+.gray-3{
+  color: #b3b3b3 !important;
+}
 /* .ZV-btn :hover{
   text-decoration: underline;
 } */

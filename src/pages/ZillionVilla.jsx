@@ -24,16 +24,23 @@ const theme = createTheme({
 
 const dummyData = [
   {
-    user: "Surya",
-    about: "hbsaihhbdasd aksdas asbdasdkas",
-    innorudata: [
-      { user: "Surya", about: "hbsaihhbdasd aksdas asbdasdkas" },
-      { user: "Selvin", about: "hbsaihhbdasd aksdas asbdasdkas" },
-      { user: "Manoj", about: "hbsaihhbdasd aksdas asbdasdkas" },
-    ],
+    name: "Surya",
+    username: "jass123",
+    date: "Nov 11",
+    achievement: "Completing 400 m in 45 sec",
   },
-  { user: "Selvin", about: "hbsaihhbdasd aksdas asbdasdkas" },
-  { user: "Manoj", about: "hbsaihhbdasd aksdas asbdasdkas" },
+  {
+    name: "Selvin",
+    username: "rico007",
+    date: "Nov 11",
+    achievement: "I have scored 50 in a match",
+  },
+  {
+    name: "Manoj",
+    username: "manoj",
+    date: "Nov 11",
+    achievement: "I have watched 4 films today",
+  },
 ];
 
 export default function ZillionVilla() {
@@ -146,48 +153,91 @@ export default function ZillionVilla() {
           <span className="query-maker-btn white"> Zillion Saga</span>
         </Button>
       </div>
+
+      <h5 className="purple ms-5 mt-2">1.Zillionaire of the Day</h5>
+
       {dummyData.map((data, index) => (
-    
-        <Box className="col-9 bg-hash br-10 mt-5 ms-5" style={{ height: 400 }}>
-          <div className="position-absolute ms-4" style={{ marginTop: -20 }}>
-            <StyledBadge
-              overlap="circular"
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "right",
-              }}
-              variant="dot"
+        <Box
+          className="col-9  ms-5 mb-5 gray-1"
+          style={{ height: 500, width: 500 }}
+        >
+          <h6 className=" gray-1">h</h6>
+          <Box
+            className="col-9 mt-5 ms-4 purple-bg"
+            style={{ height: 200, width: 452 }}
+          >
+            <div
+              className="position-absolute d-flex ms-4 "
+              style={{ marginTop: -12 }}
             >
-              <Avatar
-                className="bg-linearlr cursor-pointer"
-                // alt={feed.user.username}
-                // src={
-                //   feed.user.profile_pic
-                //     ? feed.user.profile_pic.public_url
-                //     : ""
-                // }
-                style={{
-                  boxShadow: "0px 5px 10px black",
-                  // bottom:"25px",
-                  // transform: "scale(1.2)",
-                  // width: mob ? 50 : 60,
-                  // height: mob ? 50 : 60,
+              <StyledBadge
+                overlap="circular"
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "right",
                 }}
-                // onClick={() =>
-                //   history.push(
-                //     `/user-profile/${feed.user.id}`
-                //   )
-                // }
-              />
-            </StyledBadge>
-          <div className=" col-9 ps-5 bg-primary " style={{ height: 200 }}>
-            <h1>hi</h1>
+                variant="dot"
+              >
+                <Avatar
+                  className="bg-linearlr cursor-pointer"
+                  // alt={feed.user.username}
+                  // src={
+                  //   feed.user.profile_pic
+                  //     ? feed.user.profile_pic.public_url
+                  //     : ""
+                  // }
+                  style={{
+                    boxShadow: "0px 1px 10px black",
+                    marginTop: -15,
+                    // bottom:"25px",
+                    // transform: "scale(1.2)",
+                    // width: mob ? 50 : 60,
+                    // height: mob ? 50 : 60,
+                  }}
+                  // onClick={() =>
+                  //   history.push(
+                  //     `/user-profile/${feed.user.id}`
+                  //   )
+                  // }
+                />
+              </StyledBadge>
+              <div className="d-flex ms-3" style={{ marginTop: -10 }}>
+                <h6 className="text-dark fw-bold pb-1 ps-1 gray-2">
+                  {data.name}
+                </h6>
+                <h6 className="text-dark  pb-5  ps-2 gray-3">
+                  @{data.username}
+                </h6>
+                <h6 className="text-dark  pb-5  ps-2 gray-3">{data.date}</h6>
+                {/* <h6 className="text-dark fw-bold pb-5  ps-1 ">{index}</h6> */}
+              </div>
+            </div>
+          </Box>
+          <div className="border border-hash  ms-4 me-4">
+            <div
+              className="d-flex justify-content-between  "
+              style={{ height: 130 }}
+            >
+              <h6 className="purple ms-2 mt-2 ">Achievement</h6>
+              <Button
+                style={{
+                  borderRadius: "10px",
+                  // boxShadow: "0px 5px 10px #0000005e",
+                  marginBottom: "90px",
+                }}
+                className="fw-bold bg-linearlr me-4 mt-2 rounded-pill "
+                variant="outlined"
+              >
+                <span className="query-maker-btn white fw-semibold">
+                  Follow
+                </span>
+              </Button>
+            </div>
+            <p className="purple ms-2">{data.achievement}</p>
           </div>
-            <h3 className="text-dark fw-bold">{data.user}</h3>
+          <div>
+            <p className="border border-hash purple">hi</p>
           </div>
-          <h3 className="text-dark fw-bold pt-5">{data.about}</h3>
-          <h3 className="text-dark fw-bold pt-5">{index}</h3>
-          
         </Box>
       ))}
     </div>
