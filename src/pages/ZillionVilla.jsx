@@ -7,7 +7,12 @@ import Slider from "@mui/material/Slider";
 import zvillasoon from "../assets/images/zson.gif";
 import { useState } from "react";
 import Button from "@mui/material/Button";
-
+import { Avatar, Box } from "@mui/material";
+import nodata from "../assets/images/nofeed.gif";
+import feed_loader from "../assets/images/feed_load.gif";
+import { postComment, uploadFeed } from "../slices/newsfeedSlice";
+import Badge from "@mui/material/Badge";
+import styled from "@emotion/styled";
 
 const theme = createTheme({
   palette: {
@@ -17,13 +22,53 @@ const theme = createTheme({
   },
 });
 
+const dummyData = [
+  {
+    user: "Surya",
+    about: "hbsaihhbdasd aksdas asbdasdkas",
+    innorudata: [
+      { user: "Surya", about: "hbsaihhbdasd aksdas asbdasdkas" },
+      { user: "Selvin", about: "hbsaihhbdasd aksdas asbdasdkas" },
+      { user: "Manoj", about: "hbsaihhbdasd aksdas asbdasdkas" },
+    ],
+  },
+  { user: "Selvin", about: "hbsaihhbdasd aksdas asbdasdkas" },
+  { user: "Manoj", about: "hbsaihhbdasd aksdas asbdasdkas" },
+];
+
 export default function ZillionVilla() {
-
-  const [zhonor,setZhonor] = useState(false);
-  const [zchest,setZchest] = useState(false);
-  const [zstoreroom,setZstoreroom] = useState(false);
-  const [zsaga,setZsaga] = useState(false);
-
+  const [zhonor, setZhonor] = useState(false);
+  const [zchest, setZchest] = useState(false);
+  const [zstoreroom, setZstoreroom] = useState(false);
+  const [zsaga, setZsaga] = useState(false);
+  const StyledBadge = styled(Badge)(({ theme }) => ({
+    "& .MuiBadge-badge": {
+      backgroundColor: "#44b700",
+      color: "#44b700",
+      boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+      "&::after": {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        borderRadius: "50%",
+        animation: "ripple 1.2s infinite ease-in-out",
+        border: "1px solid currentColor",
+        content: '""',
+      },
+    },
+    "@keyframes ripple": {
+      "0%": {
+        transform: "scale(.8)",
+        opacity: 1,
+      },
+      "100%": {
+        transform: "scale(2.4)",
+        opacity: 0,
+      },
+    },
+  }));
 
   return (
     // <div>
@@ -53,69 +98,294 @@ export default function ZillionVilla() {
     //         <li>Zillion Storeroom</li>
     //         <li>Zillion Saga</li>
     //       </ul>
-          
+
     //   </div> */}
-  
+
     // </div>
 
-      <div>
-        <div class="d-flex justify-content-around mt-5  ZV-btn">
-      <Button
-                style={{
-                  borderRadius: "10px",  
-                  // boxShadow: "0px 5px 10px #0000005e",
-                }}
-                className="fw-bold bg-linearlr p-2  m-4 "
-                variant="outlined"
-              >
-                <span className="query-maker-btn white">Zillion Honor Board </span> 
-              </Button>
-              <Button
-                style={{
-                  borderRadius: "10px",
-                  // boxShadow: "0px 5px 10px #0000005e",
-                }}
-                className="fw-bold bg-linearlr p-2   m-4  "
-                variant="outlined"
-              >
-                <span className="query-maker-btn white"> Zillion Chest</span>
-              </Button>
-              <Button
-                style={{
-                  borderRadius: "10px",
-                  // boxShadow: "0px 5px 10px #0000005e",
-                }}
-                className="fw-bold bg-linearlr p-2   m-4  "
-                variant="outlined"
-              >
-                <span className="query-maker-btn white"> Zillion Storeroom</span>
-              </Button>
-              <Button
-                style={{
-                  borderRadius: "10px",
-                  // boxShadow: "0px 5px 10px #0000005e",
-                }}
-                className="fw-bold bg-linearlr p-2  m-4   "
-                variant="outlined"
-              >
-                <span className="query-maker-btn white"> Zillion Saga</span>
-              </Button>
-              
+    <div>
+      <div class="d-flex justify-content-around mt-5  ZV-btn">
+        <Button
+          style={{
+            borderRadius: "10px",
+            // boxShadow: "0px 5px 10px #0000005e",
+          }}
+          className="fw-bold bg-linearlr p-2  m-4 "
+          variant="outlined"
+        >
+          <span className="query-maker-btn white">Zillion Honor Board </span>
+        </Button>
+        <Button
+          style={{
+            borderRadius: "10px",
+            // boxShadow: "0px 5px 10px #0000005e",
+          }}
+          className="fw-bold bg-linearlr p-2   m-4  "
+          variant="outlined"
+        >
+          <span className="query-maker-btn white"> Zillion Chest</span>
+        </Button>
+        <Button
+          style={{
+            borderRadius: "10px",
+            // boxShadow: "0px 5px 10px #0000005e",
+          }}
+          className="fw-bold bg-linearlr p-2   m-4  "
+          variant="outlined"
+        >
+          <span className="query-maker-btn white"> Zillion Storeroom</span>
+        </Button>
+        <Button
+          style={{
+            borderRadius: "10px",
+            // boxShadow: "0px 5px 10px #0000005e",
+          }}
+          className="fw-bold bg-linearlr p-2  m-4   "
+          variant="outlined"
+        >
+          <span className="query-maker-btn white"> Zillion Saga</span>
+        </Button>
       </div>
-      <div class="row row-cols-1 row-cols-md-2 g-4">
-      <div class="col">
-    <div class="card">
-      <div  class="card-img-top" ></div>
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
+      {dummyData.map((data, index) => (
+    
+        <Box className="col-9 bg-hash br-10 mt-5 ms-5" style={{ height: 400 }}>
+          <div className="position-absolute ms-4" style={{ marginTop: -20 }}>
+            <StyledBadge
+              overlap="circular"
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "right",
+              }}
+              variant="dot"
+            >
+              <Avatar
+                className="bg-linearlr cursor-pointer"
+                // alt={feed.user.username}
+                // src={
+                //   feed.user.profile_pic
+                //     ? feed.user.profile_pic.public_url
+                //     : ""
+                // }
+                style={{
+                  boxShadow: "0px 5px 10px black",
+                  // bottom:"25px",
+                  // transform: "scale(1.2)",
+                  // width: mob ? 50 : 60,
+                  // height: mob ? 50 : 60,
+                }}
+                // onClick={() =>
+                //   history.push(
+                //     `/user-profile/${feed.user.id}`
+                //   )
+                // }
+              />
+            </StyledBadge>
+          <div className=" col-9 ps-5 bg-primary " style={{ height: 200 }}>
+            <h1>hi</h1>
+          </div>
+            <h3 className="text-dark fw-bold">{data.user}</h3>
+          </div>
+          <h3 className="text-dark fw-bold pt-5">{data.about}</h3>
+          <h3 className="text-dark fw-bold pt-5">{index}</h3>
+          
+        </Box>
+      ))}
     </div>
-    </div>
-  </div>
-      </div>
-
-
+    // <Box
+    //                     className={`col-12 col-md-11 d-flex mx-auto flex-column justify-content-start
+    //                  position-relative ${
+    //                    !feed.attachment && " bg-linearlr li-shadow"
+    //                  }`}
+    //                     style={
+    //                       feed.attachment
+    //                         ? {
+    //                             borderRadius: "25px",
+    //                             height: mob ? 275 : 325,
+    //                             // height: 325,
+    //                             boxShadow: "0px 0px 15px grey",
+    //                             // background: feed.attachment.public_url
+    //                             //   ? `url("${feed.attachment.public_url}")no-repeat center/contain`
+    //                             //   : "",
+    //                             zIndex: 1,
+    //                           }
+    //                         : {
+    //                             borderRadius: "25px",
+    //                             maxHeight: 525,
+    //                             // boxShadow: "0px 0px 15px grey",
+    //                             // border: "3px solid #7201c8",
+    //                           }
+    //                     }
+    //                   >
+    //                     <div
+    //                       className=" px-sm-4 pe-2 d-flex align-items-end justify-content-between"
+    //                       style={{ height: "20px", zIndex: 2 }}
+    //                     >
+    //                       <div className="ps-1 d-flex align-items-center justify-content-start ms-2 mb-sm-0 mx-sm-0 ">
+    //                         {isOnline ? (
+    //                           <StyledBadge
+    //                             overlap="circular"
+    //                             anchorOrigin={{
+    //                               vertical: "bottom",
+    //                               horizontal: "right",
+    //                             }}
+    //                             variant="dot"
+    //                           >
+    //                             <Avatar
+    //                               className="bg-linearlr cursor-pointer"
+    //                               alt={feed.user.username}
+    //                               src={
+    //                                 feed.user.profile_pic
+    //                                   ? feed.user.profile_pic.public_url
+    //                                   : ""
+    //                               }
+    //                               style={{
+    //                                 boxShadow: "0px 5px 10px black",
+    //                                 // bottom:"25px",
+    //                                 // transform: "scale(1.2)",
+    //                                 width: mob ? 50 : 60,
+    //                                 height: mob ? 50 : 60,
+    //                               }}
+    //                               onClick={() =>
+    //                                 history.push(
+    //                                   `/user-profile/${feed.user.id}`
+    //                                 )
+    //                               }
+    //                             />
+    //                           </StyledBadge>
+    //                         ) : (
+    //                           <Avatar
+    //                             className="bg-linearlr cursor-pointer"
+    //                             alt={feed.user.username}
+    //                             src={
+    //                               feed.user.profile_pic
+    //                                 ? feed.user.profile_pic.public_url
+    //                                 : ""
+    //                             }
+    //                             style={{
+    //                               boxShadow: "0px 5px 10px black",
+    //                               // bottom:"25px",
+    //                               // transform: "scale(1.2)",
+    //                               width: mob ? 50 : 60,
+    //                               height: mob ? 50 : 60,
+    //                             }}
+    //                             onClick={() =>
+    //                               history.push(
+    //                                 `/user-profile/${feed.user.id}`
+    //                               )
+    //                             }
+    //                           />
+    //                         )}
+    //                         <div className="d-flex flex-column flex-sm-row justify-content-start align-items-start ms-2 pe-1 pe-sm-2 mb-sm-3 mt-0 ">
+    //                           <div
+    //                             className="fw-bold pe-sm-2 purple mb-4 mb-sm-0"
+    //                             style={{ fontSize: 18 }}
+    //                           >
+    //                             {feed.user.username}
+    //                           </div>
+    //                           {/* <div className="fw-bold grey post-uname">
+    //                       @{feed.user.id}
+    //                     </div> */}
+    //                         </div>
+    //                       </div>
+    //                       <div className="d-flex mb-2">
+    //                         <div
+    //                           className="h6 grey pe-1 pe-sm-2 mt-1 mt-sm-0 mb-3 "
+    //                           style={{ fontSize: 12 }}
+    //                         >
+    //                           {postedMonth + " " + postedDate}
+    //                         </div>
+    //                       </div>
+    //                     </div>
+    //                     {!feed.attachment && (
+    //                       <div
+    //                         className="col-12 my-1 cursor-auto overflow-auto"
+    //                         style={{
+    //                           height: "88%",
+    //                           // overflowY: "scroll !important",
+    //                           // maxHeight: 305,
+    //                         }}
+    //                       >
+    //                         <div
+    //                           className="w-100 px-4 py-2 text-white cursor-auto"
+    //                           // style={{
+    //                           //   maxHeight: 275,
+    //                           // }}
+    //                         >
+    //                           {feed.text}
+    //                         </div>
+    //                       </div>
+    //                     )}
+    //                     {feed.attachment &&
+    //                       checkImg.includes(feed.attachment.mimetype) && (
+    //                         <div className="position-absolute br-20 h-100 w-100 p-0 overflow-hidden bg-white">
+    //                           <div
+    //                             className="position-absolute h-100 w-100 overflow-hidden"
+    //                             style={{
+    //                               zIndex: 1,
+    //                               background: feed.attachment.public_url
+    //                                 ? `url("${
+    //                                     feed.attachment.public_url
+    //                                   }")no-repeat center/${
+    //                                     !imgView ? "contain" : "cover"
+    //                                   }`
+    //                                 : "",
+    //                             }}
+    //                           ></div>
+    //                           {!imgView && (
+    //                             <div
+    //                               className="position-absolute h-100 w-100"
+    //                               style={{
+    //                                 zIndex: 0,
+    //                                 background: feed.attachment.public_url
+    //                                   ? `url("${feed.attachment.public_url}")no-repeat center/cover`
+    //                                   : "",
+    //                                 filter: "blur(3px)",
+    //                                 opacity: 0.7,
+    //                               }}
+    //                             ></div>
+    //                           )}
+    //                         </div>
+    //                       )}
+    //                     <div
+    //                       className="br-20 w-100 position-absolute overflow-hidden "
+    //                       style={{
+    //                         height: mob ? 275 : 325,
+    //                       }}
+    //                     >
+    //                       {feed.attachment &&
+    //                         checkVideo.includes(feed.attachment.mimetype) && (
+    //                           // <Player src="http://www.w3schools.com/html/mov_bbb.mp4">
+    //                           //   <BigPlayButton position="center" />
+    //                           // </Player>
+    //                           <video
+    //                             className="my-auto"
+    //                             // width="100%"
+    //                             // height="100%"
+    //                             style={{
+    //                               width: "100%" /* or any custom size */,
+    //                               height: "100%",
+    //                               objectFit: "contain",
+    //                             }}
+    //                             autoPlay
+    //                             muted
+    //                             loop
+    //                             controls
+    //                             controlsList="nodownload"
+    //                           >
+    //                             <source
+    //                               src={
+    //                                 feed.attachment
+    //                                   ? feed.attachment.public_url
+    //                                   : ""
+    //                               }
+    //                               type={feed.attachment.mimetype}
+    //                             />
+    //                             {/* <source src="movie.ogg" type="video/ogg" /> */}
+    //                             Your browser does not support the video tag.
+    //                           </video>
+    //                         )}
+    //                     </div>
+    //                   </Box>
   );
 }
 {
